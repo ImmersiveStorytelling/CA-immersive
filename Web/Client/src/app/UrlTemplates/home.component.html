@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>| Show and Tell - Home |</title>
+    </head>
+    <body>
+       <!-- When the user is logged in, he should be welcomed personally -->
+       <!-- His username should be filled in automatically in 'Welcome DUMMYUSERNAME' -->
+        <label>Welcome, DUMMYUSERNAME</label><br />
+        <!-- When the user is logged in, there should be an API call checking to what APIKeys this username is related -->
+        <!-- When all the APIKeys are returned, we could list the projectnames by doing other API calls, converting the APIKeys to names -->
+        <!-- This list should be generated automatically with a loop -->
+        <label>Your projects:</label><br />
+        <ul>
+            <li><a href="#">DUMMYPROJECTNAME1</a></li>
+            <li><a href="#">DUMMYPROJECTNAME2</a></li>
+            <li><a href="#">DUMMYPROJECTNAME3</a></li>
+        </ul>
+        <label>Create a new project:</label><br />
+        <form id="newProject">
+            <label>Project name: </label><input type="text" /><br />
+            <input type="submit" />
+        </form>
+    </body>
+</html>

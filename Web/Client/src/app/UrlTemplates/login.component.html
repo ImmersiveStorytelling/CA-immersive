@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>| Show and Tell - Login |</title>
+    </head>
+    <body>
+       <!-- When a user already had a username + password, he should be able to login here -->
+       <!-- When submit button is pressed, API call should check if there is a valid couple of username + password -->
+       <!-- If there is, user should be redirected to home page. If not, error should be shown -->
+        <form id="login">
+            <label>Username: </label><input type="text"/><br />
+            <label>Password: </label><input type="password"/><br />
+            <input type="submit" value="Sign in"/>
+        </form>
+        <h3>Don't have an account yet? Create one!</h3>
+        <!-- When a user doesn't have an account yet, he should be able to create one here -->
+        <!-- When submit button is pressed, API call should check if username doesn't exist yet -->
+        <!-- If the username doesn't exist, tell user account is created and redirect to home page -->
+        <!-- If the username is already taken, show user error and make username-field empty -->
+        <form>
+            <label>Username: </label><input type="text"/><br />
+            <label>Password: </label><input type="password" /><br />
+            <input type="submit" value="Sign up" />
+        </form>
+    </body>
+</html>
