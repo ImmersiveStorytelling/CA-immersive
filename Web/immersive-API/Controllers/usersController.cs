@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace immersive_API.Controllers
 {
-    [Route("/users")]
+    [Route("/api/users")]
     public class usersController : Controller
     {
         [HttpGet]

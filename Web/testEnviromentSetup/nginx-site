@@ -1,0 +1,17 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	server_name example.com;
+
+	root /vagrant/testEnviromentSetup/testhtml;
+	index index.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+	location /api {
+		proxy_pass http://localhost:5000;
+	}
+}
+
