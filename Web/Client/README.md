@@ -1,0 +1,2 @@
+#eigendom van ski
+
