@@ -33,8 +33,6 @@ var AppComponent = /** @class */ (function () {
             selector: 'my-app',
             //template: `<h1>Hello {{name}}</h1><p>And you live in {{woonplaats}}</p>`,
             templateUrl: 'app/UrlTemplates/app.component.html'
-            /*selector: 'binding',
-            templateUrl:'app/UrlTemplates/binding.component.html'*/
         })
     ], AppComponent);
     return AppComponent;

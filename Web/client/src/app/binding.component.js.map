@@ -1,1 +1,0 @@
-{"version":3,"file":"binding.component.js","sourceRoot":"","sources":["binding.component.ts"],"names":[],"mappings":";;;;;;;;AACA,sCAEuB;AAOvB;IALA;QAME,aAAQ,GAAW,aAAa,CAAC;QACjC,UAAK,GAAa,CAAC,WAAW,EAAE,WAAW,EAAE,WAAW,CAAC,CAAC;IAC5D,CAAC;IAHY,gBAAgB;QAL5B,gBAAS,CAAE;YACV,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,4BAA4B;SAC1C,CAAC;OAEW,gBAAgB,CAG5B;IAAD,uBAAC;CAAA,AAHD,IAGC;AAHY,4CAAgB"}
