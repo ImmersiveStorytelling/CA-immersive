@@ -12,21 +12,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(router) {
-        this.router = router;
+    function LoginComponent(router /*, private _dataService: DataService*/) {
+        this.router = router; /*, private _dataService: DataService*/
         this.loginClick = function () {
-            this.router.navigateByUrl('/home');
+            // this.router.navigateByUrl('/home');
+            console.log('getData');
         };
         this.signupClick = function () {
-            this.router.navigateByUrl('/home');
+            // this.router.navigateByUrl('/home');
         };
     }
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/login/login.component.html'
+            templateUrl: 'app/login/login.component.html',
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router /*, private _dataService: DataService*/])
     ], LoginComponent);
     return LoginComponent;
 }());

@@ -10,6 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_routing_1 = require("../app.routing");
 var login_component_1 = require("../login/login.component");
+var data_service_1 = require("../Service/data.service");
 var LoginModule = /** @class */ (function () {
     function LoginModule() {
     }
@@ -17,7 +18,8 @@ var LoginModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.AppRoutingModule],
             declarations: [login_component_1.LoginComponent, app_routing_1.routingComponents],
-            bootstrap: [login_component_1.LoginComponent]
+            bootstrap: [login_component_1.LoginComponent],
+            providers: [data_service_1.DataService]
         })
     ], LoginModule);
     return LoginModule;
