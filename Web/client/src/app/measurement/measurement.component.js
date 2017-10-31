@@ -20,7 +20,7 @@ var MeasurementComponent = /** @class */ (function () {
     }
     MeasurementComponent = __decorate([
         core_1.Component({
-            selector: 'measurement',
+            selector: 'my-app',
             templateUrl: 'app/measurement/measurement.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router])

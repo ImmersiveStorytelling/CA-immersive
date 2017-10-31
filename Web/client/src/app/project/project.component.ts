@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'project',
+  selector: 'my-app',
   templateUrl:'app/project/project.component.html'
 })
 

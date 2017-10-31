@@ -23,7 +23,7 @@ var LoginComponent = /** @class */ (function () {
     }
     LoginComponent = __decorate([
         core_1.Component({
-            selector: 'login',
+            selector: 'my-app',
             templateUrl: 'app/login/login.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router])

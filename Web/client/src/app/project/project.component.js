@@ -23,7 +23,7 @@ var ProjectComponent = /** @class */ (function () {
     }
     ProjectComponent = __decorate([
         core_1.Component({
-            selector: 'project',
+            selector: 'my-app',
             templateUrl: 'app/project/project.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router])

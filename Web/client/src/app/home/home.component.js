@@ -23,7 +23,7 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent = __decorate([
         core_1.Component({
-            selector: 'home',
+            selector: 'my-app',
             templateUrl: 'app/home/home.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router])

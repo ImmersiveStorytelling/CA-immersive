@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'measurement',
+  selector: 'my-app',
   templateUrl:'app/measurement/measurement.component.html'
 })
 
