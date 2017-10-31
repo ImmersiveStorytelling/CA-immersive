@@ -34,6 +34,7 @@ export class LoginComponent  {
 
   // inline methods
   private navigateToHomeComponent() {
+    // data van specifieke user doorgeven
     this.router.navigateByUrl('/home');
   }
 
