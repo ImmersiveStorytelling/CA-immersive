@@ -1,27 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import '../interfaces/Project.interface';
 
 @Injectable()
 export class HomeDataService {
 
-  url = 'http://localhost:4000';
+  urlUsers = 'http://localhost:4000/users';
+  urlProjects = 'http://localhost:4000/projects';
 
-  constructor(private http: HttpClientModule) {}
+  listProjects: Project[];
+
+  constructor(private http: HttpClient) {}
 
   // Hier alle nodige REST API calls:
 
-  getData() {
-    return 'DATA HOME';
-    /*this.http.get<User>(this.url).subscribe(res => {
-      // this.users = res;
-      console.log(res);
-    });*/
+  getProjectsFrom(/*user*/) {
+    this.http.get<Project[]>(this.urlProjects).subscribe(res => {
+      this.listProjects = res;
+      console.log('Vanuit Service: ' + this.listProjects);
+    });
+    return this.listProjects;
   }
 
 }
 
-// hier interfaces, vb:
-interface User {
-  userID: string;
-  password: string;
-}

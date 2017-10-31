@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var homeData_service_1 = require("../Service/homeData.service");
+require("../interfaces/Project.interface");
 var HomeComponent = /** @class */ (function () {
     function HomeComponent(router, _homeDataService) {
         this.router = router;
@@ -29,9 +30,9 @@ var HomeComponent = /** @class */ (function () {
         };
     }
     HomeComponent.prototype.ngOnInit = function () {
-        // laden van alle project van deze persoon
-        // test => OK
-        console.log(this._homeDataService.getData());
+        // laden van alle projecten van deze persoon
+        this.listProjects = this._homeDataService.getProjectsFrom();
+        console.log('Vanuit component:' + this.listProjects);
     };
     // inline methods
     HomeComponent.prototype.navigateToProjectComponent = function () {

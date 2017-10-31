@@ -11,22 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
+require("../interfaces/Project.interface");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
         this.http = http;
-        this.url = 'http://localhost:4000';
+        this.urlUsers = 'http://localhost:4000/users';
+        this.urlProjects = 'http://localhost:4000/projects';
     }
     // Hier alle nodige REST API calls:
-    HomeDataService.prototype.getData = function () {
-        return 'DATA HOME';
-        /*this.http.get<User>(this.url).subscribe(res => {
-          // this.users = res;
-          console.log(res);
-        });*/
+    HomeDataService.prototype.getProjectsFrom = function () {
+        var _this = this;
+        this.http.get(this.urlProjects).subscribe(function (res) {
+            _this.listProjects = res;
+            console.log('Vanuit Service: ' + _this.listProjects);
+        });
+        return this.listProjects;
     };
     HomeDataService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.HttpClientModule])
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], HomeDataService);
     return HomeDataService;
 }());

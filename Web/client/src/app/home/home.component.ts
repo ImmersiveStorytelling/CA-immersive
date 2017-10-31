@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {HomeDataService} from '../Service/homeData.service';
-
+import '../interfaces/Project.interface';
 
 @Component({
   selector: 'my-app',
@@ -11,13 +11,14 @@ import {HomeDataService} from '../Service/homeData.service';
 
 export class HomeComponent implements OnInit {
 
+  listProjects: Project[];
+
   constructor(private router: Router, private _homeDataService: HomeDataService) { }
 
   ngOnInit(): void {
-    // laden van alle project van deze persoon
-
-    // test => OK
-    console.log(this._homeDataService.getData());
+    // laden van alle projecten van deze persoon
+    this.listProjects = this._homeDataService.getProjectsFrom();
+    console.log('Vanuit component:' + this.listProjects);
   }
 
   projectClick= function () {
