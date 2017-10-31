@@ -17,7 +17,7 @@ var LoginModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.AppRoutingModule],
             declarations: [login_component_1.LoginComponent, app_routing_1.routingComponents],
-            bootstrap: [login_component_1.LoginComponent]
+            bootstrap: [login_component_1.LoginComponent],
         })
     ], LoginModule);
     return LoginModule;

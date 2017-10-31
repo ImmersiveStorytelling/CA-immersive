@@ -11,22 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var loginData_service_1 = require("../Service/loginData.service");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(router) {
+    function LoginComponent(router, _loginServiceData) {
         this.router = router;
+        this._loginServiceData = _loginServiceData;
         this.loginClick = function () {
-            this.router.navigateByUrl('/home');
+            // als geverifierd
+            // dan => this.navigateToHomeComponent();
+            // als fout
+            // dan error
+            // test => OK
+            console.log(this._loginServiceData.getData());
         };
         this.signupClick = function () {
-            this.router.navigateByUrl('/home');
+            // als velden ingevuld en button klik
+            // dan data pushen naar database
+            // als dan data in database
+            // dan => (methode hier onder)
+            this.navigateToHomeComponent();
         };
     }
+    // inline methods
+    LoginComponent.prototype.navigateToHomeComponent = function () {
+        this.router.navigateByUrl('/home');
+    };
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/login/login.component.html'
+            templateUrl: 'app/login/login.component.html',
+            providers: [loginData_service_1.LoginDataService]
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, loginData_service_1.LoginDataService])
     ], LoginComponent);
     return LoginComponent;
 }());

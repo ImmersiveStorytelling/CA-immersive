@@ -11,19 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var measurementData_service_1 = require("../Service/measurementData.service");
 var MeasurementComponent = /** @class */ (function () {
-    function MeasurementComponent(router) {
+    function MeasurementComponent(router, _measurementDataService) {
         this.router = router;
+        this._measurementDataService = _measurementDataService;
         this.goBackClick = function () {
             this.router.navigateByUrl('/project');
         };
     }
+    MeasurementComponent.prototype.ngOnInit = function () {
+        // alle measurement data laden
+        // test => OK
+        console.log(this._measurementDataService.getData());
+    };
     MeasurementComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/measurement/measurement.component.html'
+            templateUrl: 'app/measurement/measurement.component.html',
+            providers: [measurementData_service_1.MeasurementDataService]
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, measurementData_service_1.MeasurementDataService])
     ], MeasurementComponent);
     return MeasurementComponent;
 }());

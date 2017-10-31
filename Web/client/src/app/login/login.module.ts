@@ -6,7 +6,7 @@ import { LoginComponent }  from '../login/login.component';
 @NgModule({
   imports:      [ BrowserModule, AppRoutingModule ],
   declarations: [ LoginComponent, routingComponents ],
-  bootstrap:    [ LoginComponent ]
+  bootstrap:    [ LoginComponent ],
 })
 
 export class LoginModule {

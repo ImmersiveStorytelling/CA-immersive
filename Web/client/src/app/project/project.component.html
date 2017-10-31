@@ -21,17 +21,17 @@
        <!-- If not, the user should get an error message -->
        <form id="addContributor">
            <label>Enter username of contributor: </label><input type="text" /><br />
-           <input type="submit" value="Add contributor" />
+           <input type="button" value="Add contributor" />
        </form>
        <!-- If the user wants to delete a contributor, he should click the button next to the username he wants to delete -->
        <!-- With an API call, the pair of username + APIKey should be removed from the table -->
        <!-- This list should be generated automatically with an API call checking in the username + APIKey-table looking for all users that have this APIKey -->
        <!-- Only if the 'isOwner' field is set to true, and this username correspond to the username logged in, the delete buttons should show -->
        <ul>
-           <li>DUMMYCONTRIBUTORUSERNAME1 <input type="submit" value="Delete contributor" /></li>
-           <li>DUMMYCONTRIBUTORUSERNAME2 <input type="submit" value="Delete contributor" /></li>
-           <li>DUMMYCONTRIBUTORUSERNAME3 <input type="submit" value="Delete contributor" /></li>
+           <li>DUMMYCONTRIBUTORUSERNAME1 <input type="button" value="Delete contributor" /></li>
+           <li>DUMMYCONTRIBUTORUSERNAME2 <input type="button" value="Delete contributor" /></li>
+           <li>DUMMYCONTRIBUTORUSERNAME3 <input type="button" value="Delete contributor" /></li>
        </ul>
-       <input type="submit" value="Go Back" (click)="goBackClick()" />
+       <input type="button" value="Go Back" (click)="goBackClick()" />
     </body>
 </html>
