@@ -17,13 +17,25 @@ var LoginComponent = /** @class */ (function () {
         this.router = router;
         this._loginServiceData = _loginServiceData;
         this.loginClick = function () {
-            // this.router.navigateByUrl('/home');
+            // als geverifierd
+            // dan => this.navigateToHomeComponent();
+            // als fout
+            // dan error
+            // test => OK
             console.log(this._loginServiceData.getData());
         };
         this.signupClick = function () {
-            // this.router.navigateByUrl('/home');
+            // als velden ingevuld en button klik
+            // dan data pushen naar database
+            // als dan data in database
+            // dan => (methode hier onder)
+            this.navigateToHomeComponent();
         };
     }
+    // inline methods
+    LoginComponent.prototype.navigateToHomeComponent = function () {
+        this.router.navigateByUrl('/home');
+    };
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

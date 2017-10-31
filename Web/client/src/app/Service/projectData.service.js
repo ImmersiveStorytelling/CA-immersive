@@ -11,24 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var LoginDataService = /** @class */ (function () {
-    function LoginDataService(http) {
+var ProjectDataService = /** @class */ (function () {
+    function ProjectDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000';
     }
     // Hier alle nodige REST API calls:
-    LoginDataService.prototype.getData = function () {
-        return 'DATA LOGIN';
+    ProjectDataService.prototype.getData = function () {
+        return 'DATA PROJECT';
         /*this.http.get<User>(this.url).subscribe(res => {
           // this.users = res;
           console.log(res);
         });*/
     };
-    LoginDataService = __decorate([
+    ProjectDataService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.HttpClientModule])
-    ], LoginDataService);
-    return LoginDataService;
+    ], ProjectDataService);
+    return ProjectDataService;
 }());
-exports.LoginDataService = LoginDataService;
-//# sourceMappingURL=loginData.service.js.map
+exports.ProjectDataService = ProjectDataService;
+//# sourceMappingURL=projectData.service.js.map

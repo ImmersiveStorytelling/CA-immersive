@@ -14,12 +14,27 @@ export class LoginComponent  {
   constructor(private router: Router, private _loginServiceData: LoginDataService) { }
 
   loginClick= function () {
-    // this.router.navigateByUrl('/home');
+    // als geverifierd
+    // dan => this.navigateToHomeComponent();
+    // als fout
+    // dan error
+
+    // test => OK
     console.log(this._loginServiceData.getData());
   };
 
   signupClick= function () {
-    // this.router.navigateByUrl('/home');
+    // als velden ingevuld en button klik
+    // dan data pushen naar database
+    // als dan data in database
+    // dan => (methode hier onder)
+    this.navigateToHomeComponent();
   };
+
+
+  // inline methods
+  private navigateToHomeComponent() {
+    this.router.navigateByUrl('/home');
+  }
 
 }

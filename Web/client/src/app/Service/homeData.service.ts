@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 @Injectable()
-export class LoginDataService {
+export class HomeDataService {
 
   url = 'http://localhost:4000';
 
@@ -11,7 +11,7 @@ export class LoginDataService {
   // Hier alle nodige REST API calls:
 
   getData() {
-    return 'DATA LOGIN';
+    return 'DATA HOME';
     /*this.http.get<User>(this.url).subscribe(res => {
       // this.users = res;
       console.log(res);

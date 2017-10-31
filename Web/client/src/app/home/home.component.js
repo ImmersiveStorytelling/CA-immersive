@@ -11,22 +11,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var homeData_service_1 = require("../Service/homeData.service");
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(router) {
+    function HomeComponent(router, _homeDataService) {
         this.router = router;
+        this._homeDataService = _homeDataService;
         this.projectClick = function () {
-            this.router.navigateByUrl('/project');
+            // stuur dit project door voor specifieke data op te vragen?
+            this.navigateToProjectComponent();
         };
         this.submitProjectClick = function () {
-            this.router.navigateByUrl('/project');
+            // als veld ingevuld en button klik
+            // dan data pushen naar database
+            // als dan data in database
+            // dan =>
+            this.navigateToProjectComponent();
         };
     }
+    HomeComponent.prototype.ngOnInit = function () {
+        // laden van alle project van deze persoon
+        // test => OK
+        console.log(this._homeDataService.getData());
+    };
+    // inline methods
+    HomeComponent.prototype.navigateToProjectComponent = function () {
+        this.router.navigateByUrl('/project');
+    };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/home/home.component.html'
+            templateUrl: 'app/home/home.component.html',
+            providers: [homeData_service_1.HomeDataService]
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, homeData_service_1.HomeDataService])
     ], HomeComponent);
     return HomeComponent;
 }());
