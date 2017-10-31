@@ -11,23 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var DataService = /** @class */ (function () {
-    function DataService(http) {
+var LoginDataService = /** @class */ (function () {
+    function LoginDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000';
     }
-    DataService.prototype.getData = function () {
+    LoginDataService.prototype.getData = function () {
         return 'DATAA';
         /*this.http.get<User>(this.url).subscribe(res => {
           // this.users = res;
           console.log(res);
         });*/
     };
-    DataService = __decorate([
+    LoginDataService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.HttpClientModule])
-    ], DataService);
-    return DataService;
+    ], LoginDataService);
+    return LoginDataService;
 }());
-exports.DataService = DataService;
-//# sourceMappingURL=data.service.js.map
+exports.LoginDataService = LoginDataService;
+//# sourceMappingURL=loginData.service.js.map

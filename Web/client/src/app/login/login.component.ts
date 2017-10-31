@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {DataService} from '../Service/data.service';
+import {LoginDataService} from '../Service/loginData.service';
 
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app/login/login.component.html',
+  providers: [ LoginDataService ]
 })
 
 export class LoginComponent  {
 
-  constructor(private router: Router/*, private _dataService: DataService*/) { }
+  constructor(private router: Router, private _loginServiceData: LoginDataService) { }
 
   loginClick= function () {
     // this.router.navigateByUrl('/home');
-    console.log('getData');
+    console.log(this._loginServiceData.getData());
   };
 
   signupClick= function () {

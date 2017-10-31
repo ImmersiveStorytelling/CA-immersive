@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var loginData_service_1 = require("../Service/loginData.service");
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(router /*, private _dataService: DataService*/) {
-        this.router = router; /*, private _dataService: DataService*/
+    function LoginComponent(router, _loginServiceData) {
+        this.router = router;
+        this._loginServiceData = _loginServiceData;
         this.loginClick = function () {
             // this.router.navigateByUrl('/home');
-            console.log('getData');
+            console.log(this._loginServiceData.getData());
         };
         this.signupClick = function () {
             // this.router.navigateByUrl('/home');
@@ -26,8 +28,9 @@ var LoginComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/login/login.component.html',
+            providers: [loginData_service_1.LoginDataService]
         }),
-        __metadata("design:paramtypes", [router_1.Router /*, private _dataService: DataService*/])
+        __metadata("design:paramtypes", [router_1.Router, loginData_service_1.LoginDataService])
     ], LoginComponent);
     return LoginComponent;
 }());
