@@ -6,7 +6,7 @@ import { MeasurementComponent} from "./measurement/measurement.component";
 import { ProjectComponent} from "./project/project.component";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'login'},
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent},
   { path: 'measurement', component: MeasurementComponent},
@@ -21,3 +21,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const routingComponents = [LoginComponent, HomeComponent, MeasurementComponent, ProjectComponent];
+
+

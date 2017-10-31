@@ -11,14 +11,14 @@
         <!-- This list should be generated automatically with a loop -->
         <label>Your projects:</label><br />
         <ul>
-            <li><a href="#">DUMMYPROJECTNAME1</a></li>
+            <li><a (click)="projectClick()">DUMMYPROJECTNAME1</a></li>
             <li><a href="#">DUMMYPROJECTNAME2</a></li>
             <li><a href="#">DUMMYPROJECTNAME3</a></li>
         </ul>
         <label>Create a new project:</label><br />
         <form id="newProject">
             <label>Project name: </label><input type="text" /><br />
-            <input type="submit" />
+            <input type="submit" (click)="submitProjectClick()"/>
         </form>
     </body>
 </html>

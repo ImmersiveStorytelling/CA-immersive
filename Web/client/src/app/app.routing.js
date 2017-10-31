@@ -13,7 +13,7 @@ var home_component_1 = require("./home/home.component");
 var measurement_component_1 = require("./measurement/measurement.component");
 var project_component_1 = require("./project/project.component");
 var routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'login' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'measurement', component: measurement_component_1.MeasurementComponent },

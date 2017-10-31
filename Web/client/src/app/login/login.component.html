@@ -9,7 +9,7 @@
         <form id="login">
             <label>Username: </label><input type="text"/><br />
             <label>Password: </label><input type="password"/><br />
-            <input type="submit" value="Sign in"/>
+            <input type="submit" value="Sign in" (click)="loginClick();"/>
         </form>
         <h3>Don't have an account yet? Create one!</h3>
         <!-- When a user doesn't have an account yet, he should be able to create one here -->
@@ -19,7 +19,7 @@
         <form>
             <label>Username: </label><input type="text"/><br />
             <label>Password: </label><input type="password" /><br />
-            <input type="submit" value="Sign up" />
+            <input type="submit" value="Sign up" (click)="signupClick();"/>
         </form>
     </body>
 </html>

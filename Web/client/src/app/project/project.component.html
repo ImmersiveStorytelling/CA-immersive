@@ -10,7 +10,7 @@
        <!-- The API call will return all MeasurementID's, connected to that Key. -->
        <!-- Following list of ID's should be generated automatically with a loop -->
        <ul>
-           <li><a href="#">DUMMYMEASUREMENTID1</a></li>
+           <li><a (click)="measurementClick()">DUMMYMEASUREMENTID1</a></li>
            <li><a href="#">DUMMYMEASUREMENTID2</a></li>
            <li><a href="#">DUMMYMEASUREMENTID3</a></li>
        </ul>
@@ -32,5 +32,6 @@
            <li>DUMMYCONTRIBUTORUSERNAME2 <input type="submit" value="Delete contributor" /></li>
            <li>DUMMYCONTRIBUTORUSERNAME3 <input type="submit" value="Delete contributor" /></li>
        </ul>
+       <input type="submit" value="Go Back" (click)="goBackClick()" />
     </body>
 </html>

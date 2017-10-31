@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'measurement',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
 })
 
 export class MeasurementComponent  {
+
+  constructor(private router: Router) { }
+
+  goBackClick= function () {
+    this.router.navigateByUrl('/project');
+  };
 
 }
