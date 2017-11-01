@@ -11,8 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var rxjs_1 = require("rxjs");
 require("../interfaces/Project.interface");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/observable/interval");
+require("rxjs/add/observable/of");
+require("rxjs/add/operator/map");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
         this.http = http;
@@ -27,7 +30,7 @@ var HomeDataService = /** @class */ (function () {
             console.log('Vanuit Service: ' + _this.listProjects);
         });
         // return this.listProjects;
-        return rxjs_1.Observable.interval(2200).map(function (i) { return _this.listProjects; });
+        return Observable_1.Observable.interval(1000).map(function (i) { return _this.listProjects; });
     };
     HomeDataService = __decorate([
         core_1.Injectable(),

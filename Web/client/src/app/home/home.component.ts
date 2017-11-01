@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {HomeDataService} from '../Service/homeData.service';
 import '../interfaces/Project.interface';
-import {Subscription} from 'rxjs/Subscription';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -13,7 +12,6 @@ import {Observable} from 'rxjs/Observable';
 
 export class HomeComponent implements OnInit {
 
-  subscription: Subscription;
   // listProjects: Project[];
   listProjects: Observable<Array<Project>>;
 

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
 import '../interfaces/Project.interface';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HomeDataService {
@@ -23,7 +24,7 @@ export class HomeDataService {
       console.log('Vanuit Service: ' + this.listProjects);
     });
     // return this.listProjects;
-    return Observable.interval(2200).map(i => this.listProjects);
+    return Observable.interval(1000).map(i => this.listProjects);
   }
 
 }
