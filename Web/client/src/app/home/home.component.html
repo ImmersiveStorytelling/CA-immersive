@@ -10,7 +10,7 @@
         <!-- When all the APIKeys are returned, we could list the projectnames by doing other API calls, converting the APIKeys to names -->
         <!-- This list should be generated automatically with a loop -->
         <label>Your projects:</label><br />
-        <ul *ngFor="let project of listProjects">
+        <ul *ngFor="let project of listProjects | async">
             <li><a (click)="projectClick()">{{project.name}}</a></li>
         </ul>
         <label>Create a new project:</label><br />

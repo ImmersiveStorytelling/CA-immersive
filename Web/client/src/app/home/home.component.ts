@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {HomeDataService} from '../Service/homeData.service';
 import '../interfaces/Project.interface';
+import {Subscription} from 'rxjs/Subscription';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'my-app',
@@ -11,7 +13,9 @@ import '../interfaces/Project.interface';
 
 export class HomeComponent implements OnInit {
 
-  listProjects: Project[];
+  subscription: Subscription;
+  // listProjects: Project[];
+  listProjects: Observable<Array<Project>>;
 
   constructor(private router: Router, private _homeDataService: HomeDataService) { }
 
