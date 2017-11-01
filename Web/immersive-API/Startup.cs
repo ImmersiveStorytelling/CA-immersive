@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using immersive_API.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace immersive_API
@@ -16,6 +18,8 @@ namespace immersive_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddEntityFrameworkNpgsql().AddDbContext<ImmersiveDbContext>(o => o.UseNpgsql(
+                "Server=172.57.0.2;Database=immersive;Username=postgres;Password=secret"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
