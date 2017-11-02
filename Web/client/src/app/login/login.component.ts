@@ -23,13 +23,10 @@ export class LoginComponent implements OnInit {
   loginStatus:number;
   signupStatus:number;
 
-  g = new GenerateRandom();
-
   listOfUsers: IUser[];
 
   ngOnInit(): void {
       this._loginServiceData.getUsers().subscribe(response => this.listOfUsers = response);
-      console.log(this.g.getRandomString("hallo"));
   }
 
   loginClick(usr:string, pass:string) {

@@ -15,17 +15,14 @@ var loginData_service_1 = require("../Service/loginData.service");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
 require("../interfaces/IUser.interface");
-var GenerateRandom_1 = require("../Model/GenerateRandom");
 var LoginComponent = /** @class */ (function () {
     function LoginComponent(router, _loginServiceData) {
         this.router = router;
         this._loginServiceData = _loginServiceData;
-        this.g = new GenerateRandom_1.GenerateRandom();
     }
     LoginComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._loginServiceData.getUsers().subscribe(function (response) { return _this.listOfUsers = response; });
-        console.log(this.g.getRandomString("hallo"));
     };
     LoginComponent.prototype.loginClick = function (usr, pass) {
         for (var _i = 0, _a = this.listOfUsers; _i < _a.length; _i++) {
