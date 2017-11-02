@@ -11,9 +11,10 @@ using System;
 namespace immersiveAPI.Migrations
 {
     [DbContext(typeof(ImmersiveDbContext))]
-    partial class ImmersiveDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171102153405_dbNamesChanged")]
+    partial class dbNamesChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

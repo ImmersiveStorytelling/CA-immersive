@@ -24,6 +24,9 @@ namespace immersive_API.Entities
 
         public DbSet<User> Users { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Measurement> Measurements { get; set; }
+        public DbSet<Parameter> Parameters { get; set; }
+        public DbSet<Unit> Units { get; set; }
 
     }
 }
