@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var homeData_service_1 = require("../Service/homeData.service");
-var HomeComponent = /** @class */ (function () {
+var HomeComponent = (function () {
     function HomeComponent(router, _homeDataService) {
         this.router = router;
         this._homeDataService = _homeDataService;

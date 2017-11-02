@@ -14,7 +14,7 @@ var http_1 = require("@angular/common/http");
 require("rxjs/add/operator/map");
 require("../interfaces/IUser.interface");
 var UserModel_1 = require("../Model/UserModel");
-var LoginDataService = /** @class */ (function () {
+var LoginDataService = (function () {
     function LoginDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000/users';
@@ -22,10 +22,7 @@ var LoginDataService = /** @class */ (function () {
     // Hier alle nodige REST API calls:
     LoginDataService.prototype.getUsers = function () {
         return this.http.get(this.url)
-            .map((function (res) {
-            console.log(res);
-            return res;
-        }));
+            .map((function (res) { return res; }));
     };
     LoginDataService.prototype.createUser = function (username, password, id) {
         var u = new UserModel_1.User();

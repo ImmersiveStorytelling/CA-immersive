@@ -15,11 +15,7 @@ export class LoginDataService {
 
   getUsers(): Observable<IUser[]>  {
     return this.http.get<IUser[]>(this.url)
-      .map(
-        (res => {
-          console.log(res);
-          return <IUser[]>res;
-        }
+      .map((res => {return <IUser[]>res;}
       ));
   }
 
