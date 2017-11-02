@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var homeData_service_1 = require("../Service/homeData.service");
-require("../interfaces/Project.interface");
+require("../interfaces/IProject.interface");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
@@ -20,22 +20,29 @@ var HomeComponent = /** @class */ (function () {
     function HomeComponent(router, _homeDataService) {
         this.router = router;
         this._homeDataService = _homeDataService;
-        this.projectClick = function () {
-            // stuur dit project door voor specifieke data op te vragen?
-            this.navigateToProjectComponent();
-        };
-        this.submitProjectClick = function () {
-            // als veld ingevuld en button klik
-            // dan data pushen naar database
-            // als dan data in database
-            // dan =>
-            this.navigateToProjectComponent();
-        };
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.listProjects = this._homeDataService.getProjects().do(function (response) { return _this.listProjects = Observable_1.Observable.of(response); });
     };
+    HomeComponent.prototype.projectClick = function () {
+        // stuur dit project door voor specifieke data op te vragen?
+        this.navigateToProjectComponent();
+    };
+    ;
+    HomeComponent.prototype.submitProjectClick = function (projectName) {
+        // als veld ingevuld en button klik
+        // dan data pushen naar database
+        // als dan data in database
+        // dan =>
+        //let projectMade = false;
+        this._homeDataService.postProject(projectName);
+        //projectMade = this._homeDataService.postProject(projectName).do(
+        //response => projectName = Observable.of(response)
+        //);
+        // this.navigateToProjectComponent();
+    };
+    ;
     // inline methods
     HomeComponent.prototype.navigateToProjectComponent = function () {
         this.router.navigateByUrl('/project');

@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-require("../interfaces/Project.interface");
-require("rxjs/add/observable/interval");
+require("../interfaces/IProject.interface");
+var ProjectModel_1 = require("../home/Model/ProjectModel");
 require("rxjs/add/operator/map");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
@@ -25,6 +25,15 @@ var HomeDataService = /** @class */ (function () {
         return this.http.get(this.urlProjects).map(function (response) {
             return response;
         });
+    };
+    HomeDataService.prototype.postProject = function (projectName) {
+        var dummyProject = new ProjectModel_1.Project();
+        dummyProject.name = projectName;
+        dummyProject.apikey = projectName + '1';
+        console.log(dummyProject.name + dummyProject.apikey);
+        /*return this.http.post<Project[]>(this.urlProjects).map(response => {
+          return <Project[]>response;
+        });*/
     };
     HomeDataService = __decorate([
         core_1.Injectable(),

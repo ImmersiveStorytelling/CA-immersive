@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {HomeDataService} from '../Service/homeData.service';
-import '../interfaces/Project.interface';
+import '../interfaces/IProject.interface';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
@@ -14,8 +14,7 @@ import 'rxjs/add/operator/do';
 
 export class HomeComponent implements OnInit {
 
-  listProjects: Observable<Project[]>;
-
+  listProjects: Observable<IProject[]>;
 
   constructor(private router: Router, private _homeDataService: HomeDataService) { }
 
@@ -25,17 +24,24 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  projectClick= function () {
+  projectClick() {
     // stuur dit project door voor specifieke data op te vragen?
     this.navigateToProjectComponent();
   };
 
-  submitProjectClick= function () {
+  submitProjectClick(projectName: string) {
     // als veld ingevuld en button klik
     // dan data pushen naar database
     // als dan data in database
     // dan =>
-    this.navigateToProjectComponent();
+
+    //let projectMade = false;
+
+    this._homeDataService.postProject(projectName);
+    //projectMade = this._homeDataService.postProject(projectName).do(
+      //response => projectName = Observable.of(response)
+    //);
+    // this.navigateToProjectComponent();
   };
 
   // inline methods

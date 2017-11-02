@@ -15,8 +15,8 @@
         </ul>
         <label>Create a new project:</label><br />
         <form id="newProject">
-            <label>Project name: </label><input type="text" /><br />
-            <input type="button" value="create project" (click)="submitProjectClick()"/>
+            <label>Project name: </label><input type="text" #newProjectInput /><br />
+            <input type="button" value="create project" (click)="submitProjectClick(newProjectInput.value)"/>
         </form>
     </body>
 </html>
