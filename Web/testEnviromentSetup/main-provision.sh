@@ -9,6 +9,6 @@ then
 	apt-get install nginx -y 
 	cp /vagrant/testEnviromentSetup/nginx-site /etc/nginx/sites-available/default
 	systemctl restart nginx
-	docker network create --driver bridge isolated_nw --subnet "172.57.0.0/24"
+	docker network create --driver bridge isolated_nw --subnet "172.27.0.0/24"
   touch ~/runonce
 fi
