@@ -43,7 +43,9 @@ export class HomeComponent implements OnInit {
     /*this._homeDataService.postProject(projectName).do(response => {
       if (response) {this.getProjects(); }
     });*/
-    this._homeDataService.postProject(projectName).subscribe( res => console.log(res + ' component') );
+
+    this._homeDataService.postProject(projectName).subscribe( res =>
+      this.getProjects());
   }
 
   // inline methods

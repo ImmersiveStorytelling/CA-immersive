@@ -34,6 +34,7 @@ var HomeComponent = /** @class */ (function () {
         // dan data pushen naar database
         // als dan data in database
         // dan =>
+        var _this = this;
         /*this._homeDataService.postProject(projectName).do(
           response => {
             console.log('callback');
@@ -42,7 +43,9 @@ var HomeComponent = /** @class */ (function () {
         /*this._homeDataService.postProject(projectName).do(response => {
           if (response) {this.getProjects(); }
         });*/
-        this._homeDataService.postProject(projectName).subscribe(function (res) { return console.log(res + ' component'); });
+        this._homeDataService.postProject(projectName).subscribe(function (res) {
+            return _this.getProjects();
+        });
     };
     // inline methods
     HomeComponent.prototype.getProjects = function () {
