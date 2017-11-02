@@ -22,8 +22,7 @@ var HomeComponent = /** @class */ (function () {
         this._homeDataService = _homeDataService;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.listProjects = this._homeDataService.getProjects().do(function (response) { return _this.listProjects = Observable_1.Observable.of(response); });
+        this.getProjects();
     };
     HomeComponent.prototype.projectClick = function () {
         // stuur dit project door voor specifieke data op te vragen?
@@ -35,15 +34,21 @@ var HomeComponent = /** @class */ (function () {
         // dan data pushen naar database
         // als dan data in database
         // dan =>
-        //let projectMade = false;
-        this._homeDataService.postProject(projectName);
-        //projectMade = this._homeDataService.postProject(projectName).do(
-        //response => projectName = Observable.of(response)
-        //);
-        // this.navigateToProjectComponent();
+        this._homeDataService.postProject(projectName).do(function (response) {
+            if (response === 1) {
+                console.log("getproject");
+            }
+        });
+        /*this._homeDataService.postProject(projectName).do(response => {
+          if (response) {this.getProjects(); }
+        });*/
     };
     ;
     // inline methods
+    HomeComponent.prototype.getProjects = function () {
+        var _this = this;
+        this.listProjects = this._homeDataService.getProjects().do(function (response) { return _this.listProjects = Observable_1.Observable.of(response); });
+    };
     HomeComponent.prototype.navigateToProjectComponent = function () {
         this.router.navigateByUrl('/project');
     };

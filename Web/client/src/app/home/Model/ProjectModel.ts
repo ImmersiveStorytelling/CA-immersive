@@ -1,4 +1,5 @@
 export class Project implements IProject {
-  apikey= 'key';
-  name = 'name';
+  id: number;
+  apikey: string;
+  name: string;
 }

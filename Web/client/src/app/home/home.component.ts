@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private _homeDataService: HomeDataService) { }
 
   ngOnInit(): void {
-    this.listProjects = this._homeDataService.getProjects().do(
-      response => this.listProjects = Observable.of(response)
-    );
+    this.getProjects();
   }
 
   projectClick() {
@@ -35,16 +33,22 @@ export class HomeComponent implements OnInit {
     // als dan data in database
     // dan =>
 
-    //let projectMade = false;
+    this._homeDataService.postProject(projectName).do(
+      response => { if (response === 1) { console.log("getproject"); }
+    });
 
-    this._homeDataService.postProject(projectName);
-    //projectMade = this._homeDataService.postProject(projectName).do(
-      //response => projectName = Observable.of(response)
-    //);
-    // this.navigateToProjectComponent();
+    /*this._homeDataService.postProject(projectName).do(response => {
+      if (response) {this.getProjects(); }
+    });*/
   };
 
   // inline methods
+  private getProjects() {
+    this.listProjects = this._homeDataService.getProjects().do(
+      response => this.listProjects = Observable.of(response)
+    );
+  }
+
   navigateToProjectComponent() {
     this.router.navigateByUrl('/project');
   }
