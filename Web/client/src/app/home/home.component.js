@@ -29,11 +29,14 @@ var HomeComponent = /** @class */ (function () {
         this.navigateToProjectComponent();
     };
     ;
-    HomeComponent.prototype.submitProjectClick = function (projectName) {
+    HomeComponent.prototype.createProjectClick = function (projectName) {
         var _this = this;
         this._homeDataService.postProject(projectName).subscribe(function (res) {
             return _this.getProjects();
         });
+    };
+    HomeComponent.prototype.deleteProjectClick = function (project) {
+        this._homeDataService.deleteProject(project);
     };
     // inline methods
     HomeComponent.prototype.getProjects = function () {

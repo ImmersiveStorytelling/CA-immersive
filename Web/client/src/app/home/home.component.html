@@ -11,12 +11,15 @@
         <!-- This list should be generated automatically with a loop -->
         <label>Your projects:</label><br />
         <ul *ngFor="let project of listProjects | async">
-            <li><a (click)="projectClick()">{{project.name}}</a></li>
+            <li>
+              <a (click)="projectClick()">{{project.name}} - (apikey: {{project.apikey}})</a>
+              <input type="button" value="delete" (click)="deleteProjectClick(project)">
+            </li>
         </ul>
         <label>Create a new project:</label><br />
         <form id="newProject">
             <label>Project name: </label><input type="text" #newProjectInput /><br />
-            <input type="button" value="create project" (click)="submitProjectClick(newProjectInput.value)"/>
+            <input type="button" value="create project" (click)="createProjectClick(newProjectInput.value)"/>
         </form>
     </body>
 </html>

@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import {Subscription} from "rxjs/Subscription";
+import {Project} from "../Model/ProjectModel";
 
 @Component({
   selector: 'my-app',
@@ -28,9 +29,13 @@ export class HomeComponent implements OnInit {
     this.navigateToProjectComponent();
   };
 
-  submitProjectClick(projectName: string) {
+  createProjectClick(projectName: string) {
     this._homeDataService.postProject(projectName).subscribe( res =>
       this.getProjects());
+  }
+
+  deleteProjectClick(project: Project) {
+    this._homeDataService.deleteProject(project);
   }
 
   // inline methods

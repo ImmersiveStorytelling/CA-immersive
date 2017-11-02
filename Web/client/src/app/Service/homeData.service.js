@@ -35,6 +35,9 @@ var HomeDataService = /** @class */ (function () {
         console.log(dummyProject.name + dummyProject.apikey);
         return this.http.post(this.urlProjects, dummyProject);
     };
+    HomeDataService.prototype.deleteProject = function (project) {
+        console.log("delete: " + project.apikey);
+    };
     HomeDataService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.HttpClient])

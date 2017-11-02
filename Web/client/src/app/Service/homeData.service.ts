@@ -31,5 +31,9 @@ export class HomeDataService {
 
     return this.http.post(this.urlProjects, dummyProject);
   }
+
+  deleteProject(project: Project) {
+    console.log("delete: " + project.apikey);
+  }
 }
 
