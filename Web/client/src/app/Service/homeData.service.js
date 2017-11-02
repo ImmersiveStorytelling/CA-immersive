@@ -12,8 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 require("../interfaces/IProject.interface");
-var ProjectModel_1 = require("../home/Model/ProjectModel");
-var Observable_1 = require("rxjs/Observable");
+var ProjectModel_1 = require("../Model/ProjectModel");
 require("rxjs/add/operator/map");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
@@ -29,20 +28,16 @@ var HomeDataService = /** @class */ (function () {
     };
     HomeDataService.prototype.postProject = function (projectName) {
         var dummyProject = new ProjectModel_1.Project();
-        dummyProject.id = 13;
+        dummyProject.id = 14;
         dummyProject.name = projectName;
         dummyProject.apikey = projectName + '1';
         console.log(dummyProject.name + dummyProject.apikey);
-        this.http.post(this.urlProjects, dummyProject).subscribe(function (response) {
-            console.log(response);
-            return 1;
-        }, function (err) {
+        this.http.post(this.urlProjects, dummyProject).subscribe(function (response) { console.log(response); }, function (err) {
             console.log(err.error);
             console.log(err.name);
             console.log(err.message);
             console.log(err.status);
         });
-        return Observable_1.Observable.of(0);
     };
     HomeDataService = __decorate([
         core_1.Injectable(),

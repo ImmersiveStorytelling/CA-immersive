@@ -33,14 +33,17 @@ export class HomeComponent implements OnInit {
     // als dan data in database
     // dan =>
 
-    this._homeDataService.postProject(projectName).do(
-      response => { if (response === 1) { console.log("getproject"); }
-    });
+    /*this._homeDataService.postProject(projectName).do(
+      response => {
+        console.log('callback');
+      }
+    );*/
 
     /*this._homeDataService.postProject(projectName).do(response => {
       if (response) {this.getProjects(); }
     });*/
-  };
+    this._homeDataService.postProject(projectName);
+  }
 
   // inline methods
   private getProjects() {

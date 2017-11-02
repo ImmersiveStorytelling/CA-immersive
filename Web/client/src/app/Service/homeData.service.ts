@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import '../interfaces/IProject.interface';
-import {Project} from '../home/Model/ProjectModel';
+import {Project} from '../Model/ProjectModel';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -20,24 +20,23 @@ export class HomeDataService {
     });
   }
 
-  postProject(projectName: string): Observable<number> {
+  postProject(projectName: string): any {
     let dummyProject = new Project();
-    dummyProject.id = 13;
+    dummyProject.id = 14;
     dummyProject.name = projectName;
     dummyProject.apikey = projectName + '1';
 
     console.log(dummyProject.name + dummyProject.apikey);
 
-    this.http.post(this.urlProjects, dummyProject).subscribe(response => {
-      console.log(response);
-      return 1;
-    }, (err: HttpErrorResponse) => {
-      console.log(err.error);
-      console.log(err.name);
-      console.log(err.message);
-      console.log(err.status);
-    });
-    return Observable.of(0);
+    this.http.post(this.urlProjects, dummyProject).subscribe(
+      response => { console.log(response); },
+      (err: HttpErrorResponse) => {
+        console.log(err.error);
+        console.log(err.name);
+        console.log(err.message);
+        console.log(err.status);
+      }
+    );
   }
 }
 
