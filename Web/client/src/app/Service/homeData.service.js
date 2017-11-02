@@ -13,12 +13,14 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 require("../interfaces/IProject.interface");
 var ProjectModel_1 = require("../Model/ProjectModel");
+var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000';
         this.urlProjects = this.url + '/projects';
+        this.bool = false;
     }
     // Hier alle nodige REST API calls:
     HomeDataService.prototype.getProjects = function () {
@@ -28,16 +30,17 @@ var HomeDataService = /** @class */ (function () {
     };
     HomeDataService.prototype.postProject = function (projectName) {
         var dummyProject = new ProjectModel_1.Project();
-        dummyProject.id = 14;
+        dummyProject.id = 26;
         dummyProject.name = projectName;
         dummyProject.apikey = projectName + '1';
         console.log(dummyProject.name + dummyProject.apikey);
-        this.http.post(this.urlProjects, dummyProject).subscribe(function (response) { console.log(response); }, function (err) {
+        this.http.post(this.urlProjects, dummyProject).subscribe(function (response) { return true; }, function (err) {
             console.log(err.error);
             console.log(err.name);
             console.log(err.message);
             console.log(err.status);
         });
+        return Observable_1.Observable.of(this.bool);
     };
     HomeDataService = __decorate([
         core_1.Injectable(),

@@ -42,7 +42,7 @@ var HomeComponent = /** @class */ (function () {
         /*this._homeDataService.postProject(projectName).do(response => {
           if (response) {this.getProjects(); }
         });*/
-        this._homeDataService.postProject(projectName);
+        this._homeDataService.postProject(projectName).subscribe(function (res) { return console.log(res + ' component'); });
     };
     // inline methods
     HomeComponent.prototype.getProjects = function () {

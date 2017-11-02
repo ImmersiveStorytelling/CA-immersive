@@ -5,6 +5,7 @@ import '../interfaces/IProject.interface';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'my-app',
@@ -42,7 +43,7 @@ export class HomeComponent implements OnInit {
     /*this._homeDataService.postProject(projectName).do(response => {
       if (response) {this.getProjects(); }
     });*/
-    this._homeDataService.postProject(projectName);
+    this._homeDataService.postProject(projectName).subscribe( res => console.log(res + ' component') );
   }
 
   // inline methods
