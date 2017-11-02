@@ -29,21 +29,6 @@ export class HomeComponent implements OnInit {
   };
 
   submitProjectClick(projectName: string) {
-    // als veld ingevuld en button klik
-    // dan data pushen naar database
-    // als dan data in database
-    // dan =>
-
-    /*this._homeDataService.postProject(projectName).do(
-      response => {
-        console.log('callback');
-      }
-    );*/
-
-    /*this._homeDataService.postProject(projectName).do(response => {
-      if (response) {this.getProjects(); }
-    });*/
-
     this._homeDataService.postProject(projectName).subscribe( res =>
       this.getProjects());
   }

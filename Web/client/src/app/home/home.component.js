@@ -30,19 +30,7 @@ var HomeComponent = /** @class */ (function () {
     };
     ;
     HomeComponent.prototype.submitProjectClick = function (projectName) {
-        // als veld ingevuld en button klik
-        // dan data pushen naar database
-        // als dan data in database
-        // dan =>
         var _this = this;
-        /*this._homeDataService.postProject(projectName).do(
-          response => {
-            console.log('callback');
-          }
-        );*/
-        /*this._homeDataService.postProject(projectName).do(response => {
-          if (response) {this.getProjects(); }
-        });*/
         this._homeDataService.postProject(projectName).subscribe(function (res) {
             return _this.getProjects();
         });

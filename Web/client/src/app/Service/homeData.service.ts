@@ -4,7 +4,6 @@ import '../interfaces/IProject.interface';
 import {Project} from '../Model/ProjectModel';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import {Subscription} from "rxjs/Subscription";
 
 @Injectable()
 export class HomeDataService {
@@ -22,26 +21,15 @@ export class HomeDataService {
     });
   }
 
-  postProject(projectName: string): Observable<boolean> {
+  postProject(projectName: string): Observable<any> {
     let dummyProject = new Project();
-    dummyProject.id = 9;
+    dummyProject.id = 10;
     dummyProject.name = projectName;
-    dummyProject.apikey = projectName + '1';
+    dummyProject.apikey = projectName + dummyProject.id;
 
     console.log(dummyProject.name + dummyProject.apikey);
 
-    return this.http.post<boolean>(this.urlProjects, dummyProject);
-
-    /*this.http.post<boolean>(this.urlProjects, dummyProject).subscribe(
-      response => { return true; },
-      (err: HttpErrorResponse) => {
-        console.log(err.error);
-        console.log(err.name);
-        console.log(err.message);
-        console.log(err.status);
-      }
-    );
-    return Observable.of(false);*/
+    return this.http.post(this.urlProjects, dummyProject);
   }
 }
 

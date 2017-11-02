@@ -29,21 +29,11 @@ var HomeDataService = /** @class */ (function () {
     };
     HomeDataService.prototype.postProject = function (projectName) {
         var dummyProject = new ProjectModel_1.Project();
-        dummyProject.id = 9;
+        dummyProject.id = 10;
         dummyProject.name = projectName;
-        dummyProject.apikey = projectName + '1';
+        dummyProject.apikey = projectName + dummyProject.id;
         console.log(dummyProject.name + dummyProject.apikey);
         return this.http.post(this.urlProjects, dummyProject);
-        /*this.http.post<boolean>(this.urlProjects, dummyProject).subscribe(
-          response => { return true; },
-          (err: HttpErrorResponse) => {
-            console.log(err.error);
-            console.log(err.name);
-            console.log(err.message);
-            console.log(err.status);
-          }
-        );
-        return Observable.of(false);*/
     };
     HomeDataService = __decorate([
         core_1.Injectable(),
