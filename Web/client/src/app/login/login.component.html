@@ -9,7 +9,7 @@
         <form id="login">
             <label>Username: </label><input type="text" #signInUsername/><br />
             <label>Password: </label><input type="password" #signInPassword/><br />
-            <input type="button" value="Sign in" (click)="loginClick();"/>
+            <input type="button" value="Sign in" (click)="loginClick(signInUsername.value, signInPassword.value);"/>
         </form>
         <h3>Don't have an account yet? Create one!</h3>
         <!-- When a user doesn't have an account yet, he should be able to create one here -->
@@ -17,9 +17,9 @@
         <!-- If the username doesn't exist, tell user account is created and redirect to home page -->
         <!-- If the username is already taken, show user error and make username-field empty -->
         <form>
-            <label>Username: </label><input type="text"/><br />
-            <label>Password: </label><input type="password" /><br />
-            <input type="button" value="Sign up" (click)="signupClick();"/>
+            <label>Username: </label><input type="text" #signUpUsername/><br />
+            <label>Password: </label><input type="password" #signUpPassword/><br />
+            <input type="button" value="Sign up" (click)="signupClick(signUpUsername.value, signUpPassword.value);"/>
         </form>
     </body>
 </html>

@@ -12,18 +12,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 require("rxjs/add/operator/map");
-require("../interfaces/User.interface");
+require("../interfaces/IUser.interface");
+var UserModel_1 = require("../Model/UserModel");
 var LoginDataService = /** @class */ (function () {
     function LoginDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000/users';
     }
     // Hier alle nodige REST API calls:
-    LoginDataService.prototype.getData = function () {
+    LoginDataService.prototype.getUsers = function () {
         return this.http.get(this.url)
             .map((function (res) {
+            console.log(res);
             return res;
         }));
+    };
+    LoginDataService.prototype.createUser = function (username, password, id) {
+        var u = new UserModel_1.User();
+        u.id = id;
+        u.userID = username;
+        u.password = password;
+        console.log(u);
+        this.http.post(this.url, u).subscribe();
     };
     LoginDataService = __decorate([
         core_1.Injectable(),
