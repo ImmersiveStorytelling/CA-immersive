@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var GenerateRandom = /** @class */ (function () {
+var GenerateRandom = (function () {
     function GenerateRandom() {
     }
     GenerateRandom.prototype.getRandomString = function (str) {

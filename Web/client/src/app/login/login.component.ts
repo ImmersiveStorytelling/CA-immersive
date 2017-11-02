@@ -51,31 +51,37 @@ export class LoginComponent implements OnInit {
   };
 
   signupClick(usr:string, pass:string) {
-    for(let u of this.listOfUsers){
-      if(u.userID == usr){
-        this.signupStatus = 0;
-        break;
+    if(usr.length > 20)
+      alert("A username can only be 20 characters long. Yours is " + usr.length + ".");
+    else if(pass.length < 8)
+      alert("A password must be 8 characters long. Yours is " + pass.length + ".");
+    else {
+      for(let u of this.listOfUsers){
+        if(u.userID == usr){
+          this.signupStatus = 0;
+          break;
+        }
+        else
+          this.signupStatus = 1;
       }
-      else
-        this.signupStatus = 1;
-    }
 
-    if(pass == "")
-      this.signupStatus = 2;
+      if(pass == "")
+        this.signupStatus = 2;
 
-    let id = 0;
+      let id = 0;
 
-    for(let u of this.listOfUsers){
-      if(u.id > id)
-        id = u.id;
-    }
+      for(let u of this.listOfUsers){
+        if(u.id > id)
+          id = u.id;
+      }
 
-    id++;
+      id++;
 
-    switch(this.signupStatus){
-      case 0: alert("This username is already taken"); break;
-      case 1: this._loginServiceData.createUser(usr, pass, id); this.navigateToHomeComponent(); break;
-      case 2: alert("You can't use an empty password.");
+      switch(this.signupStatus){
+        case 0: alert("This username is already taken"); break;
+        case 1: this._loginServiceData.createUser(usr, pass, id); this.navigateToHomeComponent(); break;
+        case 2: alert("You can't use an empty password.");
+      }
     }
   };
 

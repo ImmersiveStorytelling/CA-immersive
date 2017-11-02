@@ -15,7 +15,7 @@ var loginData_service_1 = require("../Service/loginData.service");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
 require("../interfaces/IUser.interface");
-var LoginComponent = /** @class */ (function () {
+var LoginComponent = (function () {
     function LoginComponent(router, _loginServiceData) {
         this.router = router;
         this._loginServiceData = _loginServiceData;
@@ -52,33 +52,39 @@ var LoginComponent = /** @class */ (function () {
     };
     ;
     LoginComponent.prototype.signupClick = function (usr, pass) {
-        for (var _i = 0, _a = this.listOfUsers; _i < _a.length; _i++) {
-            var u = _a[_i];
-            if (u.userID == usr) {
-                this.signupStatus = 0;
-                break;
+        if (usr.length > 20)
+            alert("A username can only be 20 characters long. Yours is " + usr.length + ".");
+        else if (pass.length < 8)
+            alert("A password must be 8 characters long. Yours is " + pass.length + ".");
+        else {
+            for (var _i = 0, _a = this.listOfUsers; _i < _a.length; _i++) {
+                var u = _a[_i];
+                if (u.userID == usr) {
+                    this.signupStatus = 0;
+                    break;
+                }
+                else
+                    this.signupStatus = 1;
             }
-            else
-                this.signupStatus = 1;
-        }
-        if (pass == "")
-            this.signupStatus = 2;
-        var id = 0;
-        for (var _b = 0, _c = this.listOfUsers; _b < _c.length; _b++) {
-            var u = _c[_b];
-            if (u.id > id)
-                id = u.id;
-        }
-        id++;
-        switch (this.signupStatus) {
-            case 0:
-                alert("This username is already taken");
-                break;
-            case 1:
-                this._loginServiceData.createUser(usr, pass, id);
-                this.navigateToHomeComponent();
-                break;
-            case 2: alert("You can't use an empty password.");
+            if (pass == "")
+                this.signupStatus = 2;
+            var id = 0;
+            for (var _b = 0, _c = this.listOfUsers; _b < _c.length; _b++) {
+                var u = _c[_b];
+                if (u.id > id)
+                    id = u.id;
+            }
+            id++;
+            switch (this.signupStatus) {
+                case 0:
+                    alert("This username is already taken");
+                    break;
+                case 1:
+                    this._loginServiceData.createUser(usr, pass, id);
+                    this.navigateToHomeComponent();
+                    break;
+                case 2: alert("You can't use an empty password.");
+            }
         }
     };
     ;
