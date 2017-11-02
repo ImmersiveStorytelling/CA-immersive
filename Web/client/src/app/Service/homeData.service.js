@@ -37,6 +37,8 @@ var HomeDataService = /** @class */ (function () {
     };
     HomeDataService.prototype.deleteProject = function (project) {
         console.log("delete: " + project.apikey);
+        /////////// om te deleleten => ID naar APIKEY veranderen
+        return this.http.delete(this.urlProjects + '/' + project.id);
     };
     HomeDataService = __decorate([
         core_1.Injectable(),

@@ -32,8 +32,11 @@ export class HomeDataService {
     return this.http.post(this.urlProjects, dummyProject);
   }
 
-  deleteProject(project: Project) {
+  deleteProject(project: Project): Observable<any> {
     console.log("delete: " + project.apikey);
+
+    /////////// om te deleleten => ID naar APIKEY veranderen
+    return this.http.delete(this.urlProjects + '/' + project.id);
   }
 }
 

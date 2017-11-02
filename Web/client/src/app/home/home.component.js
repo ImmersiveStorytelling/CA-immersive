@@ -36,7 +36,10 @@ var HomeComponent = /** @class */ (function () {
         });
     };
     HomeComponent.prototype.deleteProjectClick = function (project) {
-        this._homeDataService.deleteProject(project);
+        var _this = this;
+        this._homeDataService.deleteProject(project).subscribe(function (res) {
+            return _this.getProjects();
+        });
     };
     // inline methods
     HomeComponent.prototype.getProjects = function () {

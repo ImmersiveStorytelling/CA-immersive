@@ -35,7 +35,8 @@ export class HomeComponent implements OnInit {
   }
 
   deleteProjectClick(project: Project) {
-    this._homeDataService.deleteProject(project);
+    this._homeDataService.deleteProject(project).subscribe( res =>
+      this.getProjects());
   }
 
   // inline methods
