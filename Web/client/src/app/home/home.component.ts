@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
 
   listProjects: Observable<Project[]>;
 
+
   constructor(private router: Router, private _homeDataService: HomeDataService) { }
 
   ngOnInit(): void {
-    // laden van alle projecten => OK, nu nog => van deze persoon
-    this.listProjects = this._homeDataService.getProjectsFrom().do(
+    this.listProjects = this._homeDataService.getProjects().do(
       listProjects => this.listProjects = Observable.of(listProjects)
     );
   }
@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   };
 
   // inline methods
+
   private navigateToProjectComponent() {
     this.router.navigateByUrl('/project');
   }

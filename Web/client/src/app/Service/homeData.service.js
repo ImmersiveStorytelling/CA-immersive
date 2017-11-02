@@ -19,11 +19,11 @@ require("rxjs/add/operator/do");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
         this.http = http;
-        this.urlUsers = 'http://localhost:4000/users';
-        this.urlProjects = 'http://localhost:4000/projects';
+        this.url = 'http://localhost:4000';
+        this.urlProjects = this.url + '/projects';
     }
     // Hier alle nodige REST API calls:
-    HomeDataService.prototype.getProjectsFrom = function () {
+    HomeDataService.prototype.getProjects = function () {
         return this.http.get(this.urlProjects).map(function (res) {
             return res;
         });

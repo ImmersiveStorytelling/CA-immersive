@@ -10,13 +10,13 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class HomeDataService {
 
-  urlUsers = 'http://localhost:4000/users';
-  urlProjects = 'http://localhost:4000/projects';
+  url = 'http://localhost:4000';
+  urlProjects = this.url + '/projects';
 
   constructor(private http: HttpClient) {}
 
   // Hier alle nodige REST API calls:
-  getProjectsFrom(/*user*/): Observable<Project[]> {
+  getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.urlProjects).map(res => {
       return <Project[]>res;
     });

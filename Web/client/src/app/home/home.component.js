@@ -32,8 +32,7 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // laden van alle projecten => OK, nu nog => van deze persoon
-        this.listProjects = this._homeDataService.getProjectsFrom().do(function (listProjects) { return _this.listProjects = Observable_1.Observable.of(listProjects); });
+        this.listProjects = this._homeDataService.getProjects().do(function (listProjects) { return _this.listProjects = Observable_1.Observable.of(listProjects); });
     };
     // inline methods
     HomeComponent.prototype.navigateToProjectComponent = function () {
