@@ -12,10 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 require("../interfaces/Project.interface");
-var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/interval");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/map");
+require("rxjs/add/operator/do");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
         this.http = http;
@@ -24,13 +24,9 @@ var HomeDataService = /** @class */ (function () {
     }
     // Hier alle nodige REST API calls:
     HomeDataService.prototype.getProjectsFrom = function () {
-        var _this = this;
-        this.http.get(this.urlProjects).subscribe(function (res) {
-            _this.listProjects = res;
-            console.log('Vanuit Service: ' + _this.listProjects);
+        return this.http.get(this.urlProjects).map(function (res) {
+            return res;
         });
-        // return this.listProjects;
-        return Observable_1.Observable.interval(1000).map(function (i) { return _this.listProjects; });
     };
     HomeDataService = __decorate([
         core_1.Injectable(),

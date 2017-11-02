@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class HomeDataService {
@@ -12,20 +13,13 @@ export class HomeDataService {
   urlUsers = 'http://localhost:4000/users';
   urlProjects = 'http://localhost:4000/projects';
 
-  listProjects: Project[];
-
   constructor(private http: HttpClient) {}
 
   // Hier alle nodige REST API calls:
-
-  getProjectsFrom(/*user*/)/*: Observable<Project[]>*/ {
-    this.http.get<Project[]>(this.urlProjects).subscribe(res => {
-      this.listProjects = res;
-      console.log('Vanuit Service: ' + this.listProjects);
+  getProjectsFrom(/*user*/): Observable<Project[]> {
+    return this.http.get<Project[]>(this.urlProjects).map(res => {
+      return <Project[]>res;
     });
-    // return this.listProjects;
-    return Observable.interval(1000).map(i => this.listProjects);
   }
-
 }
 

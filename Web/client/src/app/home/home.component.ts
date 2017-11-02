@@ -12,15 +12,15 @@ import {Observable} from 'rxjs/Observable';
 
 export class HomeComponent implements OnInit {
 
-  // listProjects: Project[];
-  listProjects: Observable<Array<Project>>;
+  listProjects: Observable<Project[]>;
 
   constructor(private router: Router, private _homeDataService: HomeDataService) { }
 
   ngOnInit(): void {
-    // laden van alle projecten van deze persoon
-    this.listProjects = this._homeDataService.getProjectsFrom();
-    console.log('Vanuit component:' + this.listProjects);
+    // laden van alle projecten => OK, nu nog => van deze persoon
+    this.listProjects = this._homeDataService.getProjectsFrom().do(
+      listProjects => this.listProjects = Observable.of(listProjects)
+    );
   }
 
   projectClick= function () {
