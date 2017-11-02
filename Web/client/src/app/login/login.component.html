@@ -7,8 +7,8 @@
        <!-- When submit button is pressed, API call should check if there is a valid couple of username + password -->
        <!-- If there is, user should be redirected to home page. If not, error should be shown -->
         <form id="login">
-            <label>Username: </label><input type="text"/><br />
-            <label>Password: </label><input type="password"/><br />
+            <label>Username: </label><input type="text" #signInUsername/><br />
+            <label>Password: </label><input type="password" #signInPassword/><br />
             <input type="button" value="Sign in" (click)="loginClick();"/>
         </form>
         <h3>Don't have an account yet? Create one!</h3>

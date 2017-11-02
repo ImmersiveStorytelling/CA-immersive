@@ -12,17 +12,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var loginData_service_1 = require("../Service/loginData.service");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/observable/of");
+require("rxjs/add/operator/do");
+require("../interfaces/User.interface");
 var LoginComponent = /** @class */ (function () {
     function LoginComponent(router, _loginServiceData) {
         this.router = router;
         this._loginServiceData = _loginServiceData;
         this.loginClick = function () {
-            // als geverifierd
+            // als geverifieerd
             // dan => this.navigateToHomeComponent();
             // als fout
             // dan error
             // test => OK
-            console.log(this._loginServiceData.getData());
+            /*switch(this._loginServiceData.getData(usr, passw)) {
+                case 0: console.log("Logged in"); break;
+                case 1: console.log("Password not correct for this username"); break;
+                case 2: console.log("Username does not exist"); break;
+            }*/
+            console.log(this.listOfUsers);
         };
         this.signupClick = function () {
             // als velden ingevuld en button klik
@@ -32,6 +41,10 @@ var LoginComponent = /** @class */ (function () {
             this.navigateToHomeComponent();
         };
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.listOfUsers = this._loginServiceData.getData().do(function (response) { return _this.listOfUsers = Observable_1.Observable.of(response); });
+    };
     // inline methods
     LoginComponent.prototype.navigateToHomeComponent = function () {
         this.router.navigateByUrl('/home');

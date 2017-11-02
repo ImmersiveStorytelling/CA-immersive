@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {LoginDataService} from '../Service/loginData.service';
+import { LoginDataService } from '../Service/loginData.service';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/do';
+import '../interfaces/User.interface';
 
 
 @Component({
@@ -9,18 +13,32 @@ import {LoginDataService} from '../Service/loginData.service';
   providers: [ LoginDataService ]
 })
 
-export class LoginComponent  {
+export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private _loginServiceData: LoginDataService) { }
 
+  signInUsername:string;
+  signInPassword:string;
+
+  listOfUsers: Observable<User[]>;
+
+  ngOnInit(): void {
+      this.listOfUsers = this._loginServiceData.getData().do(response => this.listOfUsers = Observable.of(response));
+  }
+
   loginClick= function () {
-    // als geverifierd
+    // als geverifieerd
     // dan => this.navigateToHomeComponent();
     // als fout
     // dan error
 
     // test => OK
-    console.log(this._loginServiceData.getData());
+    /*switch(this._loginServiceData.getData(usr, passw)) {
+        case 0: console.log("Logged in"); break;
+        case 1: console.log("Password not correct for this username"); break;
+        case 2: console.log("Username does not exist"); break;
+    }*/
+    console.log(this.listOfUsers);
   };
 
   signupClick= function () {

@@ -11,22 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
+require("rxjs/add/operator/map");
+require("../interfaces/User.interface");
 var LoginDataService = /** @class */ (function () {
     function LoginDataService(http) {
         this.http = http;
-        this.url = 'http://localhost:4000';
+        this.url = 'http://localhost:4000/users';
     }
     // Hier alle nodige REST API calls:
     LoginDataService.prototype.getData = function () {
-        return 'DATA LOGIN';
-        /*this.http.get<User>(this.url).subscribe(res => {
-          // this.users = res;
-          console.log(res);
-        });*/
+        return this.http.get(this.url)
+            .map((function (res) {
+            return res;
+        }));
     };
     LoginDataService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.HttpClientModule])
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], LoginDataService);
     return LoginDataService;
 }());
