@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import {HomeDataService} from '../Service/homeData.service';
 import '../interfaces/Project.interface';
 import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/do';
 
 @Component({
   selector: 'my-app',
@@ -19,7 +21,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.listProjects = this._homeDataService.getProjects().do(
-      listProjects => this.listProjects = Observable.of(listProjects)
+      response => this.listProjects = Observable.of(response)
     );
   }
 
@@ -37,8 +39,7 @@ export class HomeComponent implements OnInit {
   };
 
   // inline methods
-
-  private navigateToProjectComponent() {
+  navigateToProjectComponent() {
     this.router.navigateByUrl('/project');
   }
 }

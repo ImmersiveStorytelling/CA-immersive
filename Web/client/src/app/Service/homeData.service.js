@@ -13,9 +13,7 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
 require("../interfaces/Project.interface");
 require("rxjs/add/observable/interval");
-require("rxjs/add/observable/of");
 require("rxjs/add/operator/map");
-require("rxjs/add/operator/do");
 var HomeDataService = /** @class */ (function () {
     function HomeDataService(http) {
         this.http = http;
@@ -24,8 +22,8 @@ var HomeDataService = /** @class */ (function () {
     }
     // Hier alle nodige REST API calls:
     HomeDataService.prototype.getProjects = function () {
-        return this.http.get(this.urlProjects).map(function (res) {
-            return res;
+        return this.http.get(this.urlProjects).map(function (response) {
+            return response;
         });
     };
     HomeDataService = __decorate([

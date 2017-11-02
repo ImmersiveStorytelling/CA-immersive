@@ -3,9 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import '../interfaces/Project.interface';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
-import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
+
 
 @Injectable()
 export class HomeDataService {
@@ -17,8 +16,8 @@ export class HomeDataService {
 
   // Hier alle nodige REST API calls:
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(this.urlProjects).map(res => {
-      return <Project[]>res;
+    return this.http.get<Project[]>(this.urlProjects).map(response => {
+      return <Project[]>response;
     });
   }
 }
