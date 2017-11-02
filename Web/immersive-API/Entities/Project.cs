@@ -17,5 +17,7 @@ namespace immersive_API.Entities
         public string ApiKey { get; set; }
         public ICollection<UserProject> UserProjects {get; set;}
             = new List<UserProject>();
+        public ICollection<Measurement> Measurements { get; set; }
+            = new List<Measurement>();
     }
 }

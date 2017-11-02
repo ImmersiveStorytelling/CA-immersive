@@ -6,7 +6,7 @@ namespace immersive_API.Entities
     {
         public ImmersiveDbContext(DbContextOptions<ImmersiveDbContext> options):base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
