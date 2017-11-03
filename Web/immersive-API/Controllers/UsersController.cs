@@ -1,10 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
+using immersive_API.Entities;
 
 namespace immersive_API.Controllers
 {
     [Route("/api/users")]
-    public class usersController : Controller
+    public class UsersController : Controller
     {
+        private ImmersiveDbContext _immersiveDbContext;
+        public UsersController(ImmersiveDbContext immersiveDbContext){
+            _immersiveDbContext = immersiveDbContext;
+        }
         [HttpGet]
         public IActionResult GetResponse()
         {
