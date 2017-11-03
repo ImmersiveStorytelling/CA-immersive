@@ -10,15 +10,16 @@
         <!-- When all the APIKeys are returned, we could list the projectnames by doing other API calls, converting the APIKeys to names -->
         <!-- This list should be generated automatically with a loop -->
         <label>Your projects:</label><br />
-        <ul>
-            <li><a (click)="projectClick()">DUMMYPROJECTNAME1</a></li>
-            <li><a href="#">DUMMYPROJECTNAME2</a></li>
-            <li><a href="#">DUMMYPROJECTNAME3</a></li>
+        <ul *ngFor="let project of listProjects | async">
+            <li>
+              <a (click)="projectClick(project.apikey)">{{project.name}} - (apikey: {{project.apikey}})</a>
+              <input type="button" value="delete" (click)="deleteProjectClick(project)">
+            </li>
         </ul>
         <label>Create a new project:</label><br />
         <form id="newProject">
-            <label>Project name: </label><input type="text" /><br />
-            <input type="button" value="create project" (click)="submitProjectClick()"/>
+            <label>Project name: </label><input type="text" #newProjectInput /><br />
+            <input type="button" value="create project" (click)="createProjectClick(newProjectInput.value)"/>
         </form>
     </body>
 </html>

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import {ProjectDataService} from "../Service/projectData.service";
+import {ProjectDataService} from '../Service/projectData.service';
+import {ShareDataService} from '../Service/ShareData.service';
 
 @Component({
   selector: 'my-app',
@@ -10,15 +11,18 @@ import {ProjectDataService} from "../Service/projectData.service";
 
 export class ProjectComponent implements OnInit {
 
-  constructor(private router: Router, private _projectDataService: ProjectDataService) { }
+  projectApikey: string;
+
+  constructor(private router: Router, private _projectDataService: ProjectDataService, private _shareDataService: ShareDataService) {
+    this.projectApikey = this._shareDataService.getData();
+    console.log(this.projectApikey);
+  }
 
   ngOnInit(): void {
     // alle measurements laden (met timestamp)
 
     // alle contributors van database voor dit project ophalen
 
-    // test => OK
-    console.log(this._projectDataService.getData());
   }
 
   measurementClick= function () {

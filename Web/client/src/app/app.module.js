@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var http_1 = require("@angular/common/http");
+var ShareData_service_1 = require("./Service/ShareData.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -18,6 +19,7 @@ var AppModule = /** @class */ (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.AppRoutingModule, http_1.HttpClientModule],
             declarations: [app_component_1.AppComponent, app_routing_1.routingComponents],
+            providers: [ShareData_service_1.ShareDataService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
