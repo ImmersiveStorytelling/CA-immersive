@@ -7,21 +7,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var Subject_1 = require("rxjs/Subject");
+var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var ShareDataService = /** @class */ (function () {
     function ShareDataService() {
-        this.subject = new Subject_1.Subject();
+        this.subject = new BehaviorSubject_1.BehaviorSubject('no value');
     }
     ShareDataService.prototype.setString = function (data) {
         this.subject.next({ text: data });
-        //this.subscription = this.getString().subscribe(res => this.projectName = res );
-        console.log('in service setString methode: ' + this.projectName);
+        // console.log(`service setString: ${data}`);
+        console.log('service setString: ');
+        console.log(this.subject.getValue());
     };
     ShareDataService.prototype.clearString = function () {
-        this.subject.next();
+        this.subject.next('no value');
     };
     ShareDataService.prototype.getString = function () {
-        console.log('out service: ' + this.subject);
+        console.log('service getString: ');
+        console.log(this.subject.getValue());
         return this.subject.asObservable();
     };
     ShareDataService = __decorate([

@@ -39,6 +39,7 @@ var ProjectComponent = /** @class */ (function () {
             this.router.navigateByUrl('/home');
         };
         this.subscription = this._shareDataService.getString().subscribe(function (res) { return _this.projectName = res; });
+        console.log('in project component: ');
         console.log(this.projectName);
     }
     ProjectComponent.prototype.ngOnInit = function () {

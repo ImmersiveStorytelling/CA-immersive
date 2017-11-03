@@ -7,6 +7,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import {Project} from '../Model/ProjectModel';
 import {ShareDataService} from '../Service/ShareData.service';
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'my-app',
@@ -17,6 +18,8 @@ import {ShareDataService} from '../Service/ShareData.service';
 export class HomeComponent implements OnInit {
 
   listProjects: Observable<IProject[]>;
+  projectNameTest: string;
+  subscription: Subscription;
 
   constructor(private router: Router, private _homeDataService: HomeDataService, private _shareDataService: ShareDataService) { }
 
@@ -27,10 +30,7 @@ export class HomeComponent implements OnInit {
   projectClick(name: string) {
     // stuur dit project door voor specifieke data op te vragen?
     this._shareDataService.setString(name);
-    let projectName: string;
-    this._shareDataService.getString().subscribe(res => projectName = res );
-    console.log(projectName);
-    // this.navigateToProjectComponent();
+    this.navigateToProjectComponent();
   };
 
   createProjectClick(projectName: string) {

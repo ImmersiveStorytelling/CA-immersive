@@ -13,12 +13,13 @@ import {Observable} from "rxjs/Observable";
 
 export class ProjectComponent implements OnInit, OnDestroy {
 
-  projectName: any;
+  projectName: Observable<any>;
   subscription: Subscription;
 
   constructor(private router: Router, private _projectDataService: ProjectDataService, private _shareDataService: ShareDataService) {
-    this.subscription = this._shareDataService.getString().subscribe(res => this.projectName = res );
-    console.log(this.projectName);
+        this.subscription = this._shareDataService.getString().subscribe(res => this.projectName = res);
+        console.log('in project component: ');
+        console.log(this.projectName);
   }
 
   ngOnInit(): void {

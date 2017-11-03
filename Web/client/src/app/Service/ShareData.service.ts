@@ -1,24 +1,24 @@
 import {Injectable} from '@angular/core';
 import {Subject} from "rxjs/Subject";
 import {Observable} from "rxjs/Observable";
-import {Subscription} from "rxjs/Subscription";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Injectable()
 export class ShareDataService {
-  subscription: Subscription;
-  private subject = new Subject<any>();
-  projectName: string;
+  private subject = new BehaviorSubject<any>('no value');
 
   setString (data: string) {
     this.subject.next({text: data});
-    //this.subscription = this.getString().subscribe(res => this.projectName = res );
-    console.log('in service setString methode: ' + this.projectName);
+    // console.log(`service setString: ${data}`);
+    console.log('service setString: ');
+    console.log(this.subject.getValue());
   }
   clearString() {
-    this.subject.next();
+    this.subject.next('no value');
   }
   getString (): Observable<any> {
-    console.log('out service: ' + this.subject);
+    console.log('service getString: ');
+    console.log(this.subject.getValue());
     return this.subject.asObservable();
   }
 }
