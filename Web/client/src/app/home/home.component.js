@@ -27,7 +27,6 @@ var HomeComponent = /** @class */ (function () {
         this.getProjects();
     };
     HomeComponent.prototype.projectClick = function (name) {
-        // stuur dit project door voor specifieke data op te vragen?
         this._shareDataService.setString(name);
         this.navigateToProjectComponent();
     };

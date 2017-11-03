@@ -13,18 +13,13 @@ var ShareDataService = /** @class */ (function () {
         this.subject = new BehaviorSubject_1.BehaviorSubject('no value');
     }
     ShareDataService.prototype.setString = function (data) {
-        this.subject.next({ text: data });
-        // console.log(`service setString: ${data}`);
-        console.log('service setString: ');
-        console.log(this.subject.getValue());
+        this.subject.next(data);
     };
     ShareDataService.prototype.clearString = function () {
         this.subject.next('no value');
     };
     ShareDataService.prototype.getString = function () {
-        console.log('service getString: ');
-        console.log(this.subject.getValue());
-        return this.subject.asObservable().map(function (res) { return res = res.text; });
+        return this.subject.asObservable();
     };
     ShareDataService = __decorate([
         core_1.Injectable()

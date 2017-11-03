@@ -18,8 +18,6 @@ export class ProjectComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router, private _projectDataService: ProjectDataService, private _shareDataService: ShareDataService) {
         this.subscription = this._shareDataService.getString().subscribe(res => this.projectName = res);
-        console.log('in project component: ');
-        console.log(this.projectName);
   }
 
   ngOnInit(): void {
@@ -33,7 +31,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  measurementClick= function () {
+  measurementClick () {
     // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
     this.router.navigateByUrl('/measurement');
   };

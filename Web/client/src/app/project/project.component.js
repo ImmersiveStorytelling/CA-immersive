@@ -19,10 +19,6 @@ var ProjectComponent = /** @class */ (function () {
         this.router = router;
         this._projectDataService = _projectDataService;
         this._shareDataService = _shareDataService;
-        this.measurementClick = function () {
-            // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
-            this.router.navigateByUrl('/measurement');
-        };
         this.addContributor = function () {
             // als veld ingevuld en button click
             // dan nieuwe contributor naar database opslagen
@@ -39,8 +35,6 @@ var ProjectComponent = /** @class */ (function () {
             this.router.navigateByUrl('/home');
         };
         this.subscription = this._shareDataService.getString().subscribe(function (res) { return _this.projectName = res; });
-        console.log('in project component: ');
-        console.log(this.projectName);
     }
     ProjectComponent.prototype.ngOnInit = function () {
         // alle measurements laden (met timestamp)
@@ -49,6 +43,11 @@ var ProjectComponent = /** @class */ (function () {
     ProjectComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
     };
+    ProjectComponent.prototype.measurementClick = function () {
+        // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
+        this.router.navigateByUrl('/measurement');
+    };
+    ;
     ProjectComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
