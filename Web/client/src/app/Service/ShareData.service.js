@@ -14,6 +14,8 @@ var ShareDataService = /** @class */ (function () {
     }
     ShareDataService.prototype.setString = function (data) {
         this.subject.next({ text: data });
+        //this.subscription = this.getString().subscribe(res => this.projectName = res );
+        console.log('in service setString methode: ' + this.projectName);
     };
     ShareDataService.prototype.clearString = function () {
         this.subject.next();

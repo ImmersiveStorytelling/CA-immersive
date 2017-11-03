@@ -7,9 +7,12 @@ import {Subscription} from "rxjs/Subscription";
 export class ShareDataService {
   subscription: Subscription;
   private subject = new Subject<any>();
+  projectName: string;
 
   setString (data: string) {
     this.subject.next({text: data});
+    //this.subscription = this.getString().subscribe(res => this.projectName = res );
+    console.log('in service setString methode: ' + this.projectName);
   }
   clearString() {
     this.subject.next();

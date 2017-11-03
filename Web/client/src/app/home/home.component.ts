@@ -27,7 +27,10 @@ export class HomeComponent implements OnInit {
   projectClick(name: string) {
     // stuur dit project door voor specifieke data op te vragen?
     this._shareDataService.setString(name);
-    this.navigateToProjectComponent();
+    let projectName: string;
+    this._shareDataService.getString().subscribe(res => projectName = res );
+    console.log(projectName);
+    // this.navigateToProjectComponent();
   };
 
   createProjectClick(projectName: string) {

@@ -29,7 +29,10 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.projectClick = function (name) {
         // stuur dit project door voor specifieke data op te vragen?
         this._shareDataService.setString(name);
-        this.navigateToProjectComponent();
+        var projectName;
+        this._shareDataService.getString().subscribe(function (res) { return projectName = res; });
+        console.log(projectName);
+        // this.navigateToProjectComponent();
     };
     ;
     HomeComponent.prototype.createProjectClick = function (projectName) {
