@@ -5,8 +5,8 @@ import '../interfaces/IProject.interface';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
-import {Subscription} from "rxjs/Subscription";
-import {Project} from "../Model/ProjectModel";
+import {Project} from '../Model/ProjectModel';
+import {ShareDataService} from '../Service/ShareData.service';
 
 @Component({
   selector: 'my-app',
@@ -17,15 +17,17 @@ import {Project} from "../Model/ProjectModel";
 export class HomeComponent implements OnInit {
 
   listProjects: Observable<IProject[]>;
+  sharedData: string;
 
-  constructor(private router: Router, private _homeDataService: HomeDataService) { }
+  constructor(private router: Router, private _homeDataService: HomeDataService, private _shareDataService: ShareDataService) { }
 
   ngOnInit(): void {
     this.getProjects();
   }
 
-  projectClick() {
+  projectClick(apikey: string) {
     // stuur dit project door voor specifieke data op te vragen?
+    this._shareDataService.setData(apikey);
     this.navigateToProjectComponent();
   };
 

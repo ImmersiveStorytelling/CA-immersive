@@ -12,7 +12,7 @@
         <label>Your projects:</label><br />
         <ul *ngFor="let project of listProjects | async">
             <li>
-              <a (click)="projectClick()">{{project.name}} - (apikey: {{project.apikey}})</a>
+              <a (click)="projectClick(project.apikey)">{{project.name}} - (apikey: {{project.apikey}})</a>
               <input type="button" value="delete" (click)="deleteProjectClick(project)">
             </li>
         </ul>

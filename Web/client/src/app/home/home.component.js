@@ -16,16 +16,19 @@ require("../interfaces/IProject.interface");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
+var ShareData_service_1 = require("../Service/ShareData.service");
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(router, _homeDataService) {
+    function HomeComponent(router, _homeDataService, _shareDataService) {
         this.router = router;
         this._homeDataService = _homeDataService;
+        this._shareDataService = _shareDataService;
     }
     HomeComponent.prototype.ngOnInit = function () {
         this.getProjects();
     };
-    HomeComponent.prototype.projectClick = function () {
+    HomeComponent.prototype.projectClick = function (apikey) {
         // stuur dit project door voor specifieke data op te vragen?
+        this._shareDataService.setData(apikey);
         this.navigateToProjectComponent();
     };
     ;
@@ -55,7 +58,7 @@ var HomeComponent = /** @class */ (function () {
             templateUrl: 'app/home/home.component.html',
             providers: [homeData_service_1.HomeDataService]
         }),
-        __metadata("design:paramtypes", [router_1.Router, homeData_service_1.HomeDataService])
+        __metadata("design:paramtypes", [router_1.Router, homeData_service_1.HomeDataService, ShareData_service_1.ShareDataService])
     ], HomeComponent);
     return HomeComponent;
 }());
