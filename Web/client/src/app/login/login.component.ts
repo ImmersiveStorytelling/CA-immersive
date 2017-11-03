@@ -88,6 +88,7 @@ export class LoginComponent implements OnInit {
 
   // inline methods
   private navigateToHomeComponent() {
+    // data van specifieke user doorgeven
     this.router.navigateByUrl('/home');
   }
 

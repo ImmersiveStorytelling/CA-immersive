@@ -1,0 +1,8 @@
+npm install
+npm update
+npm install -g typescript@latest
+npm install -g rxjs@latest
+
+voeg volgende 2 lijnen toe aan file 'systemjs.config.js':
+'tslib': 'npm:tslib/tslib.js',
+'@angular/common/http': 'npm:@angular/common/bundles/common-http.umd.js',

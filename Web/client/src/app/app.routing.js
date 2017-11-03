@@ -19,7 +19,7 @@ var routes = [
     { path: 'measurement', component: measurement_component_1.MeasurementComponent },
     { path: 'project', component: project_component_1.ProjectComponent }
 ];
-var AppRoutingModule = /** @class */ (function () {
+var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([

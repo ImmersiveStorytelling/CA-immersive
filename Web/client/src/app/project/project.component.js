@@ -12,10 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var projectData_service_1 = require("../Service/projectData.service");
-var ProjectComponent = /** @class */ (function () {
-    function ProjectComponent(router, _projectDataService) {
+var ShareData_service_1 = require("../Service/ShareData.service");
+var ProjectComponent = (function () {
+    function ProjectComponent(router, _projectDataService, _shareDataService) {
+        var _this = this;
         this.router = router;
         this._projectDataService = _projectDataService;
+        this._shareDataService = _shareDataService;
         this.measurementClick = function () {
             // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
             this.router.navigateByUrl('/measurement');
@@ -35,12 +38,15 @@ var ProjectComponent = /** @class */ (function () {
         this.goBackClick = function () {
             this.router.navigateByUrl('/home');
         };
+        this.subscription = this._shareDataService.getString().subscribe(function (res) { return _this.projectName = res; });
+        console.log(this.projectName);
     }
     ProjectComponent.prototype.ngOnInit = function () {
         // alle measurements laden (met timestamp)
         // alle contributors van database voor dit project ophalen
-        // test => OK
-        console.log(this._projectDataService.getData());
+    };
+    ProjectComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     ProjectComponent = __decorate([
         core_1.Component({
@@ -48,7 +54,7 @@ var ProjectComponent = /** @class */ (function () {
             templateUrl: 'app/project/project.component.html',
             providers: [projectData_service_1.ProjectDataService]
         }),
-        __metadata("design:paramtypes", [router_1.Router, projectData_service_1.ProjectDataService])
+        __metadata("design:paramtypes", [router_1.Router, projectData_service_1.ProjectDataService, ShareData_service_1.ShareDataService])
     ], ProjectComponent);
     return ProjectComponent;
 }());

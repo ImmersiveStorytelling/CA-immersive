@@ -12,28 +12,46 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var homeData_service_1 = require("../Service/homeData.service");
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent(router, _homeDataService) {
+require("../interfaces/IProject.interface");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/observable/of");
+require("rxjs/add/operator/do");
+var ShareData_service_1 = require("../Service/ShareData.service");
+var HomeComponent = (function () {
+    function HomeComponent(router, _homeDataService, _shareDataService) {
         this.router = router;
         this._homeDataService = _homeDataService;
-        this.projectClick = function () {
-            // stuur dit project door voor specifieke data op te vragen?
-            this.navigateToProjectComponent();
-        };
-        this.submitProjectClick = function () {
-            // als veld ingevuld en button klik
-            // dan data pushen naar database
-            // als dan data in database
-            // dan =>
-            this.navigateToProjectComponent();
-        };
+        this._shareDataService = _shareDataService;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        // laden van alle project van deze persoon
-        // test => OK
-        console.log(this._homeDataService.getData());
+        this.getProjects();
+    };
+    HomeComponent.prototype.projectClick = function (name) {
+        // stuur dit project door voor specifieke data op te vragen?
+        this._shareDataService.setString(name);
+        var projectName;
+        this._shareDataService.getString().subscribe(function (res) { return projectName = res; });
+        console.log(projectName);
+        // this.navigateToProjectComponent();
+    };
+    ;
+    HomeComponent.prototype.createProjectClick = function (projectName) {
+        var _this = this;
+        this._homeDataService.postProject(projectName).subscribe(function (res) {
+            return _this.getProjects();
+        });
+    };
+    HomeComponent.prototype.deleteProjectClick = function (project) {
+        var _this = this;
+        this._homeDataService.deleteProject(project).subscribe(function (res) {
+            return _this.getProjects();
+        });
     };
     // inline methods
+    HomeComponent.prototype.getProjects = function () {
+        var _this = this;
+        this.listProjects = this._homeDataService.getProjects().do(function (response) { return _this.listProjects = Observable_1.Observable.of(response); });
+    };
     HomeComponent.prototype.navigateToProjectComponent = function () {
         this.router.navigateByUrl('/project');
     };
@@ -43,7 +61,7 @@ var HomeComponent = /** @class */ (function () {
             templateUrl: 'app/home/home.component.html',
             providers: [homeData_service_1.HomeDataService]
         }),
-        __metadata("design:paramtypes", [router_1.Router, homeData_service_1.HomeDataService])
+        __metadata("design:paramtypes", [router_1.Router, homeData_service_1.HomeDataService, ShareData_service_1.ShareDataService])
     ], HomeComponent);
     return HomeComponent;
 }());
