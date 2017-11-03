@@ -10,7 +10,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_routing_1 = require("../app.routing");
 var measurement_component_1 = require("../measurement/measurement.component");
-var MeasurementModule = (function () {
+var MeasurementModule = /** @class */ (function () {
     function MeasurementModule() {
     }
     MeasurementModule = __decorate([

@@ -14,7 +14,7 @@ var http_1 = require("@angular/common/http");
 require("rxjs/add/operator/map");
 require("../interfaces/IUser.interface");
 var UserModel_1 = require("../Model/UserModel");
-var LoginDataService = (function () {
+var LoginDataService = /** @class */ (function () {
     function LoginDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000/users';

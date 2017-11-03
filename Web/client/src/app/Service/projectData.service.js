@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var ProjectDataService = (function () {
+var ProjectDataService = /** @class */ (function () {
     function ProjectDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000';
