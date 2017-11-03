@@ -17,7 +17,6 @@ import {ShareDataService} from '../Service/ShareData.service';
 export class HomeComponent implements OnInit {
 
   listProjects: Observable<IProject[]>;
-  sharedData: string;
 
   constructor(private router: Router, private _homeDataService: HomeDataService, private _shareDataService: ShareDataService) { }
 
@@ -25,9 +24,9 @@ export class HomeComponent implements OnInit {
     this.getProjects();
   }
 
-  projectClick(apikey: string) {
+  projectClick(name: string) {
     // stuur dit project door voor specifieke data op te vragen?
-    this._shareDataService.setData(apikey);
+    this._shareDataService.setString(name);
     this.navigateToProjectComponent();
   };
 
