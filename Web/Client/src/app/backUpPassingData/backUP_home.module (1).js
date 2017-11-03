@@ -8,22 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var app_routing_1 = require("./app.routing");
-var http_1 = require("@angular/common/http");
-var ShareData_service_1 = require("./Service/ShareData.service");
-var AppModule = (function () {
-    function AppModule() {
+var app_routing_1 = require("../app.routing");
+var home_component_1 = require("../home/home.component");
+var HomeModule = (function () {
+    function HomeModule() {
     }
-    AppModule = __decorate([
+    HomeModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routing_1.AppRoutingModule, http_1.HttpClientModule],
-            declarations: [app_component_1.AppComponent, app_routing_1.routingComponents],
-            providers: [ShareData_service_1.ShareDataService],
-            bootstrap: [app_component_1.AppComponent]
+            imports: [platform_browser_1.BrowserModule, app_routing_1.AppRoutingModule],
+            declarations: [home_component_1.HomeComponent, app_routing_1.routingComponents],
+            bootstrap: [home_component_1.HomeComponent]
         })
-    ], AppModule);
-    return AppModule;
+    ], HomeModule);
+    return HomeModule;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.HomeModule = HomeModule;
+//# sourceMappingURL=backUP_home.module (1).js.map

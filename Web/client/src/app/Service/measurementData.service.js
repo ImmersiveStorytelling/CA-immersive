@@ -14,7 +14,7 @@ var http_1 = require("@angular/common/http");
 require("rxjs/add/operator/map");
 require("../interfaces/IParameter.interface");
 require("../interfaces/IUnit.interface");
-var MeasurementDataService = /** @class */ (function () {
+var MeasurementDataService = (function () {
     function MeasurementDataService(http) {
         this.http = http;
         this.urlParameters = 'http://localhost:4000/parameters?measurementID=';

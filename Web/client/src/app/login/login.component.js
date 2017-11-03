@@ -15,7 +15,7 @@ var loginData_service_1 = require("../Service/loginData.service");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
 require("../interfaces/IUser.interface");
-var LoginComponent = /** @class */ (function () {
+var LoginComponent = (function () {
     function LoginComponent(router, _loginServiceData) {
         this.router = router;
         this._loginServiceData = _loginServiceData;

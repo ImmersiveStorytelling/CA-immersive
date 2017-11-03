@@ -7,20 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_routing_1 = require("../app.routing");
-var home_component_1 = require("../home/home.component");
-var HomeModule = (function () {
-    function HomeModule() {
+var ShareDataService = (function () {
+    function ShareDataService() {
     }
-    HomeModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, app_routing_1.AppRoutingModule],
-            declarations: [home_component_1.HomeComponent, app_routing_1.routingComponents],
-            bootstrap: [home_component_1.HomeComponent]
-        })
-    ], HomeModule);
-    return HomeModule;
+    ShareDataService.prototype.setString = function (data) {
+        this.str = data;
+    };
+    ShareDataService.prototype.getString = function () {
+        return Promise.resolve(this.str);
+    };
+    ShareDataService = __decorate([
+        core_1.Injectable()
+    ], ShareDataService);
+    return ShareDataService;
 }());
-exports.HomeModule = HomeModule;
-//# sourceMappingURL=home.module.js.map
+exports.ShareDataService = ShareDataService;
+//# sourceMappingURL=backUP_home.module (4).js.map
