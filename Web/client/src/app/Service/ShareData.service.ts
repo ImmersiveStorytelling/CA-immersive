@@ -6,7 +6,7 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class ShareDataService {
   private subject = new BehaviorSubject<any>('no value');
 
-  setString (data: string) {
+  setString (data: any) {
     this.subject.next(data);
   }
   clearString() {
