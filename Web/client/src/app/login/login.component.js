@@ -90,6 +90,7 @@ var LoginComponent = (function () {
     ;
     // inline methods
     LoginComponent.prototype.navigateToHomeComponent = function () {
+        // data van specifieke user doorgeven
         this.router.navigateByUrl('/home');
     };
     LoginComponent = __decorate([

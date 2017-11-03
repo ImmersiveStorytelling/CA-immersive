@@ -17,7 +17,7 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
 var ShareData_service_1 = require("../Service/ShareData.service");
-var HomeComponent = (function () {
+var HomeComponent = /** @class */ (function () {
     function HomeComponent(router, _homeDataService, _shareDataService) {
         this.router = router;
         this._homeDataService = _homeDataService;
@@ -29,10 +29,7 @@ var HomeComponent = (function () {
     HomeComponent.prototype.projectClick = function (name) {
         // stuur dit project door voor specifieke data op te vragen?
         this._shareDataService.setString(name);
-        var projectName;
-        this._shareDataService.getString().subscribe(function (res) { return projectName = res; });
-        console.log(projectName);
-        // this.navigateToProjectComponent();
+        this.navigateToProjectComponent();
     };
     ;
     HomeComponent.prototype.createProjectClick = function (projectName) {

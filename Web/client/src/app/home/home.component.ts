@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   listProjects: Observable<IProject[]>;
 
-  constructor(private router: Router, private _homeDataService: HomeDataService, private _shareDataService: ShareDataService) { }
+  constructor(private router: Router, private _homeDataService: HomeDataService, public _shareDataService: ShareDataService) { }
 
   ngOnInit(): void {
     this.getProjects();
@@ -27,10 +27,7 @@ export class HomeComponent implements OnInit {
   projectClick(name: string) {
     // stuur dit project door voor specifieke data op te vragen?
     this._shareDataService.setString(name);
-    let projectName: string;
-    this._shareDataService.getString().subscribe(res => projectName = res );
-    console.log(projectName);
-    // this.navigateToProjectComponent();
+    this.navigateToProjectComponent();
   };
 
   createProjectClick(projectName: string) {

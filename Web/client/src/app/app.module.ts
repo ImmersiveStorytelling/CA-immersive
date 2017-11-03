@@ -14,5 +14,4 @@ import {ShareDataService} from './Service/ShareData.service';
 })
 
 export class AppModule {
-
 }

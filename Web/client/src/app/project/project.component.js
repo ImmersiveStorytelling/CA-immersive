@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var projectData_service_1 = require("../Service/projectData.service");
 var ShareData_service_1 = require("../Service/ShareData.service");
-var ProjectComponent = (function () {
+var ProjectComponent = /** @class */ (function () {
     function ProjectComponent(router, _projectDataService, _shareDataService) {
         var _this = this;
         this.router = router;
@@ -38,15 +38,14 @@ var ProjectComponent = (function () {
         this.goBackClick = function () {
             this.router.navigateByUrl('/home');
         };
-        this.subscription = this._shareDataService.getString().subscribe(function (res) { return _this.projectName = res; });
-        console.log(this.projectName);
+        this._shareDataService.getString().then(function (res) { _this.projectName = res; console.log(res); });
     }
     ProjectComponent.prototype.ngOnInit = function () {
         // alle measurements laden (met timestamp)
         // alle contributors van database voor dit project ophalen
+        //this._shareDataService.subject.subscribe(response => console.log("test"));
     };
     ProjectComponent.prototype.ngOnDestroy = function () {
-        this.subscription.unsubscribe();
     };
     ProjectComponent = __decorate([
         core_1.Component({

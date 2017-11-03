@@ -11,22 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
+require("../interfaces/IProject.interface");
+var ProjectModel_1 = require("../Model/ProjectModel");
+require("rxjs/add/operator/map");
 var HomeDataService = (function () {
     function HomeDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000';
+        this.urlProjects = this.url + '/projects';
+        this.bool = false;
     }
     // Hier alle nodige REST API calls:
-    HomeDataService.prototype.getData = function () {
-        return 'DATA HOME';
-        /*this.http.get<User>(this.url).subscribe(res => {
-          // this.users = res;
-          console.log(res);
-        });*/
+    HomeDataService.prototype.getProjects = function () {
+        return this.http.get(this.urlProjects).map(function (response) {
+            return response;
+        });
+    };
+    HomeDataService.prototype.postProject = function (projectName) {
+        var dummyProject = new ProjectModel_1.Project();
+        dummyProject.id = 10;
+        dummyProject.name = projectName;
+        dummyProject.apikey = projectName + dummyProject.id;
+        console.log(dummyProject.name + dummyProject.apikey);
+        return this.http.post(this.urlProjects, dummyProject);
+    };
+    HomeDataService.prototype.deleteProject = function (project) {
+        console.log("delete: " + project.apikey);
+        /////////// om te deleleten => ID naar APIKEY veranderen
+        return this.http.delete(this.urlProjects + '/' + project.id);
     };
     HomeDataService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.HttpClientModule])
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], HomeDataService);
     return HomeDataService;
 }());
