@@ -15,6 +15,7 @@ var projectData_service_1 = require("../Service/projectData.service");
 var ShareData_service_1 = require("../Service/ShareData.service");
 var ProjectComponent = /** @class */ (function () {
     function ProjectComponent(router, _projectDataService, _shareDataService) {
+        var _this = this;
         this.router = router;
         this._projectDataService = _projectDataService;
         this._shareDataService = _shareDataService;
@@ -37,12 +38,15 @@ var ProjectComponent = /** @class */ (function () {
         this.goBackClick = function () {
             this.router.navigateByUrl('/home');
         };
-        this.projectApikey = this._shareDataService.getData();
-        console.log(this.projectApikey);
+        this.subscription = this._shareDataService.getString().subscribe(function (res) { return _this.projectName = res; });
+        console.log(this.projectName);
     }
     ProjectComponent.prototype.ngOnInit = function () {
         // alle measurements laden (met timestamp)
         // alle contributors van database voor dit project ophalen
+    };
+    ProjectComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
     };
     ProjectComponent = __decorate([
         core_1.Component({

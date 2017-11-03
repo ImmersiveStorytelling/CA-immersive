@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {ProjectDataService} from '../Service/projectData.service';
 import {ShareDataService} from '../Service/ShareData.service';
 import {Subscription} from "rxjs/Subscription";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'my-app',
@@ -16,7 +17,8 @@ export class ProjectComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private router: Router, private _projectDataService: ProjectDataService, private _shareDataService: ShareDataService) {
-    this.subscription = this._shareDataService.getString().subscribe(res => this.projectName = res);
+    this.subscription = this._shareDataService.getString().subscribe(res => this.projectName = res );
+    console.log(this.projectName);
   }
 
   ngOnInit(): void {

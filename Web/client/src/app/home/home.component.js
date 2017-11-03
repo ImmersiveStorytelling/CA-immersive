@@ -26,9 +26,9 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.ngOnInit = function () {
         this.getProjects();
     };
-    HomeComponent.prototype.projectClick = function (apikey) {
+    HomeComponent.prototype.projectClick = function (name) {
         // stuur dit project door voor specifieke data op te vragen?
-        this._shareDataService.setData(apikey);
+        this._shareDataService.setString(name);
         this.navigateToProjectComponent();
     };
     ;
