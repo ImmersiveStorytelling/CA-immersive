@@ -12,7 +12,7 @@ var app_component_1 = require("./app.component");
 var app_routing_1 = require("./app.routing");
 var http_1 = require("@angular/common/http");
 var ShareData_service_1 = require("./Service/ShareData.service");
-var AppModule = /** @class */ (function () {
+var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([

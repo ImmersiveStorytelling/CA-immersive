@@ -17,7 +17,7 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
 var ShareData_service_1 = require("../Service/ShareData.service");
-var HomeComponent = /** @class */ (function () {
+var HomeComponent = (function () {
     function HomeComponent(router, _homeDataService, _shareDataService) {
         this.router = router;
         this._homeDataService = _homeDataService;

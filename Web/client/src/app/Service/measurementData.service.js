@@ -11,22 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var MeasurementDataService = /** @class */ (function () {
+require("rxjs/add/operator/map");
+require("../interfaces/IParameter.interface");
+require("../interfaces/IUnit.interface");
+var MeasurementDataService = (function () {
     function MeasurementDataService(http) {
         this.http = http;
-        this.url = 'http://localhost:4000';
+        this.urlParameters = 'http://localhost:4000/parameters?measurementID=';
+        this.urlUnits = 'http://localhost:4000/units';
     }
-    // Hier alle nodige REST API calls:
-    MeasurementDataService.prototype.getData = function () {
-        return 'DATA MEASUREMENT';
-        /*this.http.get<User>(this.url).subscribe(res => {
-          // this.users = res;
-          console.log(res);
-        });*/
+    MeasurementDataService.prototype.getParameters = function (mID) {
+        return this.http.get(this.urlParameters + mID).map(function (response) { console.log(response); return response; });
+    };
+    MeasurementDataService.prototype.getUnits = function () {
+        return this.http.get(this.urlUnits).map(function (res) { console.log(res); return res; });
     };
     MeasurementDataService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.HttpClientModule])
+        __metadata("design:paramtypes", [http_1.HttpClient])
     ], MeasurementDataService);
     return MeasurementDataService;
 }());

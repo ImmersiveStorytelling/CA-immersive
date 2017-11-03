@@ -14,7 +14,7 @@ var http_1 = require("@angular/common/http");
 require("../interfaces/IProject.interface");
 var ProjectModel_1 = require("../Model/ProjectModel");
 require("rxjs/add/operator/map");
-var HomeDataService = /** @class */ (function () {
+var HomeDataService = (function () {
     function HomeDataService(http) {
         this.http = http;
         this.url = 'http://localhost:4000';
