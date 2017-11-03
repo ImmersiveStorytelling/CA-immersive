@@ -6,11 +6,14 @@
      <h3>Overview for measurement DUMMYMEASUREMENTID</h3>
       <!-- With an API call, containing the measurementID, all measured parameters should be listed here -->
       <!-- All side information of a measured parameter should also be listed so the user doesn't have to perform another click -->
-       <ul>
-           <li>DUMMYPARAMETER1<ul><li>DUMMYPARAMETER1.1</li><li>DUMMYPARAMETER1.2</li><li>DUMMYPARAMETER1.3</li></ul></li>
-           <li>DUMMYPARAMETER2<ul><li>DUMMYPARAMETER2.1</li><li>DUMMYPARAMETER2.2</li><li>DUMMYPARAMETER2.3</li></ul></li>
-           <li>DUMMYPARAMETER3<ul><li>DUMMYPARAMETER3.1</li><li>DUMMYPARAMETER3.2</li><li>DUMMYPARAMETER3.3</li></ul></li>
+     <ul *ngFor="let param of listOfParameters | async">
+       <li>Timestamp: {{param.timestamp}}</li>
+       <li>Value:</li>
+       <ul *ngFor="let unit of listOfUnits | async">
+         <li *ngIf="param.unitID == unit.id">{{param.value}} {{unit.unit}}</li>
+         <li *ngIf="param.unitID == unit.id">Unit: {{unit.name}}</li>
        </ul>
+     </ul>
      <input type="button" value="Go Back" (click)="goBackClick()" />
     </body>
 </html>

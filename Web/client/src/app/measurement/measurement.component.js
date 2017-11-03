@@ -12,6 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var measurementData_service_1 = require("../Service/measurementData.service");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/observable/of");
+require("rxjs/add/operator/do");
+require("../interfaces/IParameter.interface");
+require("../interfaces/IUnit.interface");
 var MeasurementComponent = (function () {
     function MeasurementComponent(router, _measurementDataService) {
         this.router = router;
@@ -21,9 +26,9 @@ var MeasurementComponent = (function () {
         };
     }
     MeasurementComponent.prototype.ngOnInit = function () {
-        // alle measurement data laden
-        // test => OK
-        console.log(this._measurementDataService.getData());
+        var _this = this;
+        this._measurementDataService.getUnits().subscribe(function (res) { return _this.listOfUnits = Observable_1.Observable.of(res); });
+        this.listOfParameters = this._measurementDataService.getParameters("mID10").do(function (response) { return _this.listOfParameters = Observable_1.Observable.of(response); });
     };
     MeasurementComponent = __decorate([
         core_1.Component({
