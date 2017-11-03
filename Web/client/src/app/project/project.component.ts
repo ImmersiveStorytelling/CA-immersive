@@ -2,8 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {ProjectDataService} from '../Service/projectData.service';
 import {ShareDataService} from '../Service/ShareData.service';
-import {Subscription} from "rxjs/Subscription";
-import {Observable} from "rxjs/Observable";
+import {Subscription} from 'rxjs/Subscription';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'my-app',

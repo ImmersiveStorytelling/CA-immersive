@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Subject} from "rxjs/Subject";
 import {Observable} from "rxjs/Observable";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
@@ -19,6 +18,6 @@ export class ShareDataService {
   getString (): Observable<any> {
     console.log('service getString: ');
     console.log(this.subject.getValue());
-    return this.subject.asObservable();
+    return this.subject.asObservable().map( res => res = res.text);
   }
 }

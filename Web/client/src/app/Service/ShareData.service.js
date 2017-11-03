@@ -24,7 +24,7 @@ var ShareDataService = /** @class */ (function () {
     ShareDataService.prototype.getString = function () {
         console.log('service getString: ');
         console.log(this.subject.getValue());
-        return this.subject.asObservable();
+        return this.subject.asObservable().map(function (res) { return res = res.text; });
     };
     ShareDataService = __decorate([
         core_1.Injectable()
