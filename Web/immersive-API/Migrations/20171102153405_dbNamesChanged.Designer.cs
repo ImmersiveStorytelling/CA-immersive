@@ -11,9 +11,10 @@ using System;
 namespace immersiveAPI.Migrations
 {
     [DbContext(typeof(ImmersiveDbContext))]
-    partial class ImmersiveDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171102153405_dbNamesChanged")]
+    partial class dbNamesChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,20 +101,9 @@ namespace immersiveAPI.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("PassHash")
-                        .IsRequired()
-                        .HasMaxLength(45);
-
-                    b.Property<string>("Salt")
-                        .IsRequired()
-                        .HasMaxLength(25);
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(20);
+                        .IsRequired();
 
                     b.HasKey("UserId");
-
-                    b.HasAlternateKey("Username");
 
                     b.ToTable("Users");
                 });

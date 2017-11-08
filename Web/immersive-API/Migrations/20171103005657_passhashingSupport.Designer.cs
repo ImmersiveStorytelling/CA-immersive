@@ -11,9 +11,10 @@ using System;
 namespace immersiveAPI.Migrations
 {
     [DbContext(typeof(ImmersiveDbContext))]
-    partial class ImmersiveDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171103005657_passhashingSupport")]
+    partial class passhashingSupport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,7 +102,7 @@ namespace immersiveAPI.Migrations
 
                     b.Property<string>("PassHash")
                         .IsRequired()
-                        .HasMaxLength(45);
+                        .HasMaxLength(35);
 
                     b.Property<string>("Salt")
                         .IsRequired()
