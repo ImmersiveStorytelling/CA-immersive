@@ -20,6 +20,8 @@ namespace immersive_API.Entities
                 .HasOne(up => up.User)
                 .WithMany(u => u.UserProjects)
                 .HasForeignKey(up => up.UserId);
+            modelBuilder.Entity<User>()
+                .HasAlternateKey(u => u.Username);
         }
 
         public DbSet<User> Users { get; set; }
