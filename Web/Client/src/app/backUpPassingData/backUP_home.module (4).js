@@ -7,19 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var ShareDataService = /** @class */ (function () {
     function ShareDataService() {
-        this.subject = new BehaviorSubject_1.BehaviorSubject('no value');
     }
     ShareDataService.prototype.setString = function (data) {
-        this.subject.next(data);
-    };
-    ShareDataService.prototype.clearString = function () {
-        this.subject.next('no value');
+        this.str = data;
     };
     ShareDataService.prototype.getString = function () {
-        return this.subject.asObservable();
+        return Promise.resolve(this.str);
     };
     ShareDataService = __decorate([
         core_1.Injectable()
@@ -27,4 +22,4 @@ var ShareDataService = /** @class */ (function () {
     return ShareDataService;
 }());
 exports.ShareDataService = ShareDataService;
-//# sourceMappingURL=ShareData.service.js.map
+//# sourceMappingURL=backUP_home.module (4).js.map

@@ -19,6 +19,10 @@ var ProjectComponent = /** @class */ (function () {
         this.router = router;
         this._projectDataService = _projectDataService;
         this._shareDataService = _shareDataService;
+        this.measurementClick = function () {
+            // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
+            this.router.navigateByUrl('/measurement');
+        };
         this.addContributor = function () {
             // als veld ingevuld en button click
             // dan nieuwe contributor naar database opslagen
@@ -34,7 +38,7 @@ var ProjectComponent = /** @class */ (function () {
         this.goBackClick = function () {
             this.router.navigateByUrl('/home');
         };
-        this.subscription = this._shareDataService.getString().subscribe(function (res) { return _this.projectName = res; });
+        this._shareDataService.getString().then(function (res) { _this.projectName = res; console.log(res); });
     }
     ProjectComponent.prototype.ngOnInit = function () {
         // alle measurements laden (met timestamp)
@@ -43,11 +47,6 @@ var ProjectComponent = /** @class */ (function () {
     };
     ProjectComponent.prototype.ngOnDestroy = function () {
     };
-    ProjectComponent.prototype.measurementClick = function () {
-        // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
-        this.router.navigateByUrl('/measurement');
-    };
-    ;
     ProjectComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
@@ -59,4 +58,4 @@ var ProjectComponent = /** @class */ (function () {
     return ProjectComponent;
 }());
 exports.ProjectComponent = ProjectComponent;
-//# sourceMappingURL=project.component.js.map
+//# sourceMappingURL=backUP_home.module (2).js.map

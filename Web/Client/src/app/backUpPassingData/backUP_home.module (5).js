@@ -27,6 +27,7 @@ var HomeComponent = /** @class */ (function () {
         this.getProjects();
     };
     HomeComponent.prototype.projectClick = function (name) {
+        // stuur dit project door voor specifieke data op te vragen?
         this._shareDataService.setString(name);
         this.navigateToProjectComponent();
     };
@@ -62,4 +63,4 @@ var HomeComponent = /** @class */ (function () {
     return HomeComponent;
 }());
 exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+//# sourceMappingURL=backUP_home.module (5).js.map

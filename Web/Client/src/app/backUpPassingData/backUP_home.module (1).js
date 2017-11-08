@@ -9,18 +9,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_routing_1 = require("../app.routing");
-var measurement_component_1 = require("../measurement/measurement.component");
-var MeasurementModule = (function () {
-    function MeasurementModule() {
+var home_component_1 = require("../home/home.component");
+var HomeModule = /** @class */ (function () {
+    function HomeModule() {
     }
-    MeasurementModule = __decorate([
+    HomeModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, app_routing_1.AppRoutingModule],
-            declarations: [measurement_component_1.MeasurementComponent, app_routing_1.routingComponents],
-            bootstrap: [measurement_component_1.MeasurementComponent]
+            declarations: [home_component_1.HomeComponent, app_routing_1.routingComponents],
+            bootstrap: [home_component_1.HomeComponent]
         })
-    ], MeasurementModule);
-    return MeasurementModule;
+    ], HomeModule);
+    return HomeModule;
 }());
-exports.MeasurementModule = MeasurementModule;
-//# sourceMappingURL=measurement.module.js.map
+exports.HomeModule = HomeModule;
+//# sourceMappingURL=backUP_home.module (1).js.map

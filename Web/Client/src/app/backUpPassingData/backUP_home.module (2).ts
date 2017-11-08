@@ -2,8 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {ProjectDataService} from '../Service/projectData.service';
 import {ShareDataService} from '../Service/ShareData.service';
-import {Subscription} from 'rxjs/Subscription';
-import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'my-app',
@@ -13,11 +11,10 @@ import {Observable} from 'rxjs/Observable';
 
 export class ProjectComponent implements OnInit, OnDestroy {
 
-  projectName: Observable<any>;
-  subscription: Subscription;
+  projectName: any;
 
-  constructor(private router: Router, private _projectDataService: ProjectDataService, private _shareDataService: ShareDataService) {
-        this.subscription = this._shareDataService.getString().subscribe(res => this.projectName = res);
+  constructor(private router: Router, private _projectDataService: ProjectDataService, public _shareDataService: ShareDataService) {
+    this._shareDataService.getString().then(res => {this.projectName = res; console.log(res);});
   }
 
   ngOnInit(): void {
@@ -30,7 +27,7 @@ export class ProjectComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  measurementClick () {
+  measurementClick= function () {
     // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
     this.router.navigateByUrl('/measurement');
   };

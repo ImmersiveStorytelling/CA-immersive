@@ -17,7 +17,7 @@ require("rxjs/add/observable/of");
 require("rxjs/add/operator/do");
 require("../interfaces/IParameter.interface");
 require("../interfaces/IUnit.interface");
-var MeasurementComponent = /** @class */ (function () {
+var MeasurementComponent = (function () {
     function MeasurementComponent(router, _measurementDataService) {
         this.router = router;
         this._measurementDataService = _measurementDataService;
