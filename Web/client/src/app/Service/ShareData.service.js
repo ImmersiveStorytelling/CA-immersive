@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
-var ShareDataService = (function () {
+var ShareDataService = /** @class */ (function () {
     function ShareDataService() {
         this.subject = new BehaviorSubject_1.BehaviorSubject('no value');
     }
