@@ -1,0 +1,27 @@
+Vagrant.configure("2") do |config|
+	config.vm.provider "virtualbox" do |v|
+		v.memory = 512
+		v.cpus = 1
+	end 
+	config.vm.box = "ubuntu/xenial64"
+	config.vm.define "main" do |main|
+		main.vm.hostname = "parktrack.net"
+		main.vm.network :forwarded_port, guest: 80, host: 8080
+		main.vm.network :forwarded_port, guest: 3000, host: 3000
+		main.vm.network :forwarded_port, guest: 5432, host: 5432
+		main.vm.provision "docker" do |d|
+			d.post_install_provision "shell", path: "testEnviromentSetup/main-provision.sh"
+			d.pull_images "zhajor/docker-phppgadmin"
+			d.pull_images "postgres:9.5"
+			d.run "postgres:9.5",
+				args: "--name some-postgres -v /vagrat/testEnviromentSetup/testdatabase:/var/lib/postgresql/data -e PGDATA=/var/lib/postgresql/data/datadir -e POSTGRES_PASSWORD=secret -p 5432:5432 --network=isolated_nw --ip 172.27.0.2"
+			d.run "zhajor/docker-phppgadmin",
+				args: "--name postg -p 3000:80 -e DB_HOST=172.27.0.2 -e DB_PORT=5432 --network=isolated_nw --ip 172.27.0.3"
+			d.build_image "/vagrant/immersive-API",
+				args: "-t immersiveapi"
+			d.run "immersiveapi",
+				args: "-p 5000:80 --network=isolated_nw --ip 172.27.0.4 -e connectionstring='Server=172.27.0.2;Database=immersive;Username=postgres;Password=secret'"
+		end
+	end 
+end
+

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>| Show and Tell - DUMMYMEASUREMENTID |</title>
+    </head>
+    <body>
+     <h3>Overview for measurement DUMMYMEASUREMENTID</h3>
+      <!-- With an API call, containing the measurementID, all measured parameters should be listed here -->
+      <!-- All side information of a measured parameter should also be listed so the user doesn't have to perform another click -->
+     <ul *ngFor="let param of listOfParameters | async">
+       <li>Timestamp: {{param.timestamp}}</li>
+       <li>Value:</li>
+       <ul *ngFor="let unit of listOfUnits | async">
+         <li *ngIf="param.unitID == unit.id">{{param.value}} {{unit.unit}}</li>
+         <li *ngIf="param.unitID == unit.id">Unit: {{unit.name}}</li>
+       </ul>
+     </ul>
+     <input type="button" value="Go Back" (click)="goBackClick()" />
+    </body>
+</html>
