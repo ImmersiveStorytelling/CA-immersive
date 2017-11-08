@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ShareData_service_1 = require("./Service/ShareData.service");
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent(sharedDataService) {
         this.sharedDataService = sharedDataService;
     }

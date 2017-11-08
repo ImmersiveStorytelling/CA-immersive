@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var projectData_service_1 = require("../Service/projectData.service");
 var ShareData_service_1 = require("../Service/ShareData.service");
-var ProjectComponent = (function () {
+var ProjectComponent = /** @class */ (function () {
     function ProjectComponent(router, _projectDataService, _shareDataService) {
         var _this = this;
         this.router = router;

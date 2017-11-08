@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ShareDataService = (function () {
+var ShareDataService = /** @class */ (function () {
     function ShareDataService() {
     }
     ShareDataService.prototype.setString = function (data) {
