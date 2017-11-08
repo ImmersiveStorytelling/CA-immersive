@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using AutoMapper;
 using FluentValidation;
 using immersive_API.Entities;
@@ -35,6 +38,18 @@ namespace immersive_API
         {
             services.AddMvc();
 
+            services.AddAuthentication(o =>
+            {
+                o.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                o.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                o.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(options =>
+            {
+                options.AccessDeniedPath = new PathString("/");
+                options.LoginPath = new PathString("/");
+                options.ExpireTimeSpan = new TimeSpan(10,0,0,0);
+            });
+
             string connectionstring = Startup.Configuration["connectionstring"];
             services.AddEntityFrameworkNpgsql().AddDbContext<ImmersiveDbContext>(o => o.UseNpgsql(connectionstring));
 
@@ -59,6 +74,7 @@ namespace immersive_API
                 cfg.CreateMap<Models.UserForCreationDto, Entities.User>();
                 cfg.CreateMap<Models.ProjectForCreationDto, Entities.Project>();
             });
+            app.UseAuthentication();
 
             app.UseMvc();
         }
