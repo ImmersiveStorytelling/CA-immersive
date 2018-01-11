@@ -15,13 +15,10 @@ var projectData_service_1 = require("../Service/projectData.service");
 var ShareData_service_1 = require("../Service/ShareData.service");
 var ProjectComponent = /** @class */ (function () {
     function ProjectComponent(router, _projectDataService, _shareDataService) {
+        var _this = this;
         this.router = router;
         this._projectDataService = _projectDataService;
         this._shareDataService = _shareDataService;
-        this.measurementClick = function () {
-            // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
-            this.router.navigateByUrl('/measurement');
-        };
         this.addContributor = function () {
             // als veld ingevuld en button click
             // dan nieuwe contributor naar database opslagen
@@ -37,13 +34,20 @@ var ProjectComponent = /** @class */ (function () {
         this.goBackClick = function () {
             this.router.navigateByUrl('/home');
         };
-        this.projectApikey = this._shareDataService.getData();
-        console.log(this.projectApikey);
+        this.subscription = this._shareDataService.getString().subscribe(function (res) { return _this.projectName = res; });
     }
     ProjectComponent.prototype.ngOnInit = function () {
         // alle measurements laden (met timestamp)
         // alle contributors van database voor dit project ophalen
+        //this._shareDataService.subject.subscribe(response => console.log("test"));
     };
+    ProjectComponent.prototype.ngOnDestroy = function () {
+    };
+    ProjectComponent.prototype.measurementClick = function () {
+        // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
+        this.router.navigateByUrl('/measurement');
+    };
+    ;
     ProjectComponent = __decorate([
         core_1.Component({
             selector: 'my-app',

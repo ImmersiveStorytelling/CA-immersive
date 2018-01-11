@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import {ProjectDataService} from '../Service/projectData.service';
 import {ShareDataService} from '../Service/ShareData.service';
+import {Subscription} from 'rxjs/Subscription';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'my-app',
@@ -9,23 +11,26 @@ import {ShareDataService} from '../Service/ShareData.service';
   providers: [ ProjectDataService ]
 })
 
-export class ProjectComponent implements OnInit {
+export class ProjectComponent implements OnInit, OnDestroy {
 
-  projectApikey: string;
+  projectName: Observable<any>;
+  subscription: Subscription;
 
   constructor(private router: Router, private _projectDataService: ProjectDataService, private _shareDataService: ShareDataService) {
-    this.projectApikey = this._shareDataService.getData();
-    console.log(this.projectApikey);
+        this.subscription = this._shareDataService.getString().subscribe(res => this.projectName = res);
   }
 
   ngOnInit(): void {
     // alle measurements laden (met timestamp)
 
     // alle contributors van database voor dit project ophalen
-
+    //this._shareDataService.subject.subscribe(response => console.log("test"));
   }
 
-  measurementClick= function () {
+  ngOnDestroy() {
+  }
+
+  measurementClick () {
     // data van geklikte measurement doorsturen om in volgende compenent de juiste parameters te laden
     this.router.navigateByUrl('/measurement');
   };

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ShareDataService} from "./Service/ShareData.service";
 
 @Component({
   selector: 'my-app',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent  {
+
+  constructor(public sharedDataService: ShareDataService) { }
 
 }
