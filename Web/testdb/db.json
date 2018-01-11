@@ -1,0 +1,158 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userID": "Robbe",
+      "password": "Robbe"
+    },
+    {
+      "id": 2,
+      "userID": "Ski",
+      "password": "Ski"
+    },
+    {
+      "id": 3,
+      "userID": "Wouter",
+      "password": "Wouter"
+    },
+    {
+      "id": 4,
+      "userID": "aaa",
+      "password": "aaaaaaaa"
+    }
+  ],
+  "apikeys": [
+    {
+      "id": 1,
+      "userID": "Robbe",
+      "apikey": "apikey1"
+    },
+    {
+      "id": 2,
+      "userID": "Robbe",
+      "apikey": "apikey2"
+    },
+    {
+      "id": 3,
+      "userID": "Ski",
+      "apikey": "apikey1"
+    },
+    {
+      "id": 4,
+      "userID": "Ski",
+      "apikey": "apikey3"
+    },
+    {
+      "id": 5,
+      "userID": "Wouter",
+      "apikey": "apikey1"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "apikey": "apikey1",
+      "name": "name1"
+    },
+    {
+      "id": 2,
+      "apikey": "apikey2",
+      "name": "name2"
+    },
+    {
+      "id": 3,
+      "apikey": "apikey3",
+      "name": "name3"
+    },
+    {
+      "id": 4,
+      "apikey": "apikey4",
+      "name": "name4"
+    },
+    {
+      "id": 10,
+      "name": "jooo",
+      "apikey": "jooo10"
+    }
+  ],
+  "measurements": [
+    {
+      "id": 1,
+      "measurementID": "mID10",
+      "apikey": "apikey1",
+      "start": "31/10/2017 00:47",
+      "stop": "31/10/2017 00:49"
+    },
+    {
+      "id": 2,
+      "measurementID": "mID11",
+      "apikey": "apikey1",
+      "start": "31/10/2017 00:49",
+      "stop": "31/10/2017 00:51"
+    },
+    {
+      "id": 3,
+      "measurementID": "mID20",
+      "apikey": "apikey2",
+      "start": "31/10/2017 00:47",
+      "stop": "31/10/2017 00:49"
+    },
+    {
+      "id": 4,
+      "measurementID": "mID21",
+      "apikey": "apikey2",
+      "start": "31/10/2017 00:49",
+      "stop": "31/10/2017 00:51"
+    }
+  ],
+  "parameters": [
+    {
+      "id": 1,
+      "measurementID": "mID10",
+      "value": "69",
+      "timestamp": "00:47:13",
+      "unitID": "1"
+    },
+    {
+      "id": 2,
+      "measurementID": "mID10",
+      "value": "13",
+      "timestamp": "00:47:24",
+      "unitID": "2"
+    },
+    {
+      "id": 3,
+      "measurementID": "mID21",
+      "value": "9",
+      "timestamp": "00:49:57",
+      "unitID": "1"
+    },
+    {
+      "id": 4,
+      "measurementID": "mID20",
+      "value": "34",
+      "timestamp": "00:47:08",
+      "unitID": "3"
+    }
+  ],
+  "units": [
+    {
+      "id": 1,
+      "unitID": "1",
+      "name": "distance",
+      "unit": "meters"
+    },
+    {
+      "id": 2,
+      "unitID": "2",
+      "name": "angle",
+      "unit": "degrees"
+    },
+    {
+      "id": 3,
+      "unitID": "3",
+      "name": "speed",
+      "unit": "meters per second"
+    }
+  ]
+}
