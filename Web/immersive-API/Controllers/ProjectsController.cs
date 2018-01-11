@@ -6,10 +6,12 @@ using AutoMapper;
 using immersive_API.Models;
 using FluentValidation.Results;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace immersive_API.Controllers
 {
     [Route("/api/projects")]
+    [Authorize]
     public class ProjectsController : Controller
     {
         private IImersiveRepository _imersiveRepo;
@@ -21,6 +23,7 @@ namespace immersive_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetProjects()
         {
+            var userName = User.Identity.Name;
             var projectsToMap = _imersiveRepo.GetProjectsForUser(3);
             var projectDtos = Mapper.Map<IEnumerable<ProjectDto>>(projectsToMap);
             return Ok(projectDtos);
