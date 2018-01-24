@@ -1,0 +1,4 @@
+Command in this folder where database is stored:
+
+- npm install -g json-server (only on init)
+- json-server --watch db.json -p 4000
