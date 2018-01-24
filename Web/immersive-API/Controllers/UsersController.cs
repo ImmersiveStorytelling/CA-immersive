@@ -16,6 +16,7 @@ namespace immersive_API.Controllers
         public UsersController(IImersiveRepository immersiveRepo, IPasswordHasher passHasher){
             _immersiveRepo = immersiveRepo;
             _passHasher = passHasher;
+            
         }
         [HttpGet]
         public IActionResult GetUsers()
